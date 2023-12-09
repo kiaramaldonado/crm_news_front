@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { User } from './core/models/user.interface';
+import { UsersService } from './core/services/users.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'front_grupo3';
+
+  // TODO: Eliminar de app.component y trasladar al componente correspondiente
+  usersArray: User[] = [];
+
+  usersService = inject(UsersService);
+
+  async ngOnInit() {
+    try {
+      this.usersArray = await this.usersService.getAll();
+      console.log(this.usersArray);
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
 }
