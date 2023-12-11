@@ -15,3 +15,15 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+
+// {
+//   path: 'dashboard',
+//   component: Component,
+//   children: [
+//     { path: 'form-edit', component:  },
+//     { path: 'new', component:  },
+//     { path: 'articlesByUser', component:  },
+//     { path: 'logout', component:  }
+//   ]
+// }

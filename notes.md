@@ -2,27 +2,33 @@ CORE:
     - Guards
     - Interceptors
     - Services
-    - Models (interfaces)
+    - Models (interfaces) X
 
 COMPONENTS:
-    - Navbar
+    - Main Navbar (logo, acceso de trabajadores)
     - Footer
     - Headline-card
     - Standard-card
-    - Sidebar
+    - Sidebar (categorías)
+    - ArticlesByUser
+    - Dashboard Navbar
+    - Profile
 
 PAGES: 
-    - Login (formulario)
-    - Registro (formulario)
-    - Dashboard 
-      - Datos de trabajo - articlesByUser
-      - Desplegable: editar perfil, logout
-    - Perfil (formulario de edición)
+    - Login (formulario) X /login
+    - Registro (formulario) X /registro
 
-    - Nuevo artículo (formulario) - DASHBOARD REDACTOR
+    - Dashboard /area-personal
+      - Datos de trabajo - articlesByUser 
+      - Navbar: logo + filtros + enlace a landing page
+      - Perfil: form-edit + logout
+
+    - Formulario edición perfil /perfil
+
+    - Nuevo artículo (formulario) - DASHBOARD REDACTOR area-personal/nuevo
       - Botón: borrador/revisión
   
-    - Editar artículo (formulario de edición) - DASHBOARD REDACTOR/EDITOR
+    - Editar artículo (formulario de edición) - DASHBOARD REDACTOR/EDITOR area-personal/edicion
       - Botón: borrador/revisión
       - Botón: publicar, ¿headline(t/f)?
 
