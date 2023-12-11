@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +20,7 @@ import { FormEditComponent } from './pages/form-edit/form-edit.component';
 import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { HomeComponent } from './pages/home/home.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

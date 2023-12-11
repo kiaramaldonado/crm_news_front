@@ -7,6 +7,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormEditComponent } from './pages/form-edit/form-edit.component';
 import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
+import { authGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   {
     path: 'area-personal',
     component: DashboardComponent,
+    canActivate: [authGuard],
     children: [
       { path: 'perfil', component: FormEditComponent },
       { path: 'nuevo', component: NewArticleComponent },

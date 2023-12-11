@@ -28,7 +28,7 @@ export class FormLoginComponent {
     if (!response.error) {
       localStorage.setItem('token', response.token);
     }
-    this.router.navigate(['/'])
+    this.router.navigate(['/area-personal'])
   }
 
 }
