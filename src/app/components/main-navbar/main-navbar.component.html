@@ -1,1 +1,18 @@
 <p>main-navbar works!</p>
+
+
+
+<!-- Algo parecido a esto, con las opciones:
+Logo
+Si está logueado: componente perfil: enlace a dashboard
+Si no está logueado: acceso a empleados: enlace a login -->
+
+<!-- <nav>
+    <ul>
+        <li [routerLink]="['/empleados']" *ngIf="usuariosService.isLogged()">Lista empleados</li>
+        <li [routerLink]="['/empleados/nuevo']" *ngIf="usuariosService.isLogged()">Nuevo empleado</li>
+        <li [routerLink]="['/registro']" *ngIf="!usuariosService.isLogged()">Registro</li>
+        <li [routerLink]="['/login']" *ngIf="!usuariosService.isLogged()">Login</li>
+        <li (click)="onClickLogout()" *ngIf="usuariosService.isLogged()">Logout</li>
+    </ul>
+</nav> -->

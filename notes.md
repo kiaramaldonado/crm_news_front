@@ -15,6 +15,7 @@ COMPONENTS:
     - Profile
 
 PAGES: 
+    - Home (lista artículos publicados) /guirre
     - Login (formulario) X /login
     - Registro (formulario) X /registro
 
@@ -23,7 +24,7 @@ PAGES:
       - Navbar: logo + filtros + enlace a landing page
       - Perfil: form-edit + logout
 
-    - Formulario edición perfil /perfil
+    - Formulario edición perfil area-personal/perfil
 
     - Nuevo artículo (formulario) - DASHBOARD REDACTOR area-personal/nuevo
       - Botón: borrador/revisión

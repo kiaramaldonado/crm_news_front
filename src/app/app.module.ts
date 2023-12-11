@@ -19,6 +19,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { FormEditComponent } from './pages/form-edit/form-edit.component';
 import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { EditArticleComponent } from './pages/edit-article/edit-article.componen
     DashboardComponent,
     FormEditComponent,
     NewArticleComponent,
-    EditArticleComponent
+    EditArticleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
