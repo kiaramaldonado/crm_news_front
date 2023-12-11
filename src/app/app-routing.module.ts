@@ -8,6 +8,7 @@ import { FormEditComponent } from './pages/form-edit/form-edit.component';
 import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { authGuard } from './core/guards/auth.guard';
+import { ArticlesByUserComponent } from './components/articles-by-user/articles-by-user.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
@@ -21,7 +22,8 @@ const routes: Routes = [
     children: [
       { path: 'perfil', component: FormEditComponent },
       { path: 'nuevo', component: NewArticleComponent },
-      { path: 'edicion', component: EditArticleComponent }
+      { path: 'edicion', component: EditArticleComponent }, 
+      { path: ':estado', component: ArticlesByUserComponent}
     ]
   },
 

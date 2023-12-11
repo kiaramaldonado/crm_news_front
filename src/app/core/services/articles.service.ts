@@ -17,4 +17,9 @@ export class ArticlesService {
     )
   }
 
+  getById():Promise<Article[]> {
+    return firstValueFrom(
+      this.httpClient.get<Article[]>(`${this.baseUrl}/user`)
+    )
+  }
 }

@@ -1,1 +1,33 @@
-<p>dashboard-navbar works!</p>
+
+<div class="flex-shrink-0 p-3" style="width: 280px;">
+    <a [routerLink]="['/guirre']" href="*" class="d-flex align-items-center pb-5 mb-5 link-body-emphasis text-decoration-none">
+      <figure>
+        <img src="" alt="">
+    </figure>
+      <span class="fs-5 fw-semibold">LOGO</span>
+    </a>
+    <ul class="list-unstyled ps-0">
+        <li class="mb-2">
+          Dashboard
+        </li>
+        <li class="mb-2">
+           Articulos
+            <div class="collapse show" id="home-collapse">
+            <ul class="list-unstyled pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Borradores</a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pendientes de revisión </a></li>
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Publicados</a></li>
+            </ul>
+            </div>
+        </li>
+        <li class="mb-2">
+          Imagenes
+        </li>
+        <li class="mb-5">
+          Mensajes
+        </li>
+        <li class="mb-2">
+        Nuevo Articulo
+      </li>
+    </ul>
+  </div>

@@ -21,6 +21,8 @@ import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
+import { DraftCardComponent } from './components/draft-card/draft-card.component';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
     FormEditComponent,
     NewArticleComponent,
     EditArticleComponent,
-    HomeComponent
+    HomeComponent,
+    DraftCardComponent
+    
   ],
   imports: [
     BrowserModule,

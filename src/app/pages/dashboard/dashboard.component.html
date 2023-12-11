@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+
+<div class="mb-3">Nabr con perfil usuario</div>
+  <div class="row">
+    <app-dashboard-navbar class="col-3 border border-primary">
+      Sidebar navegacion
+    </app-dashboard-navbar>
+    <div class="col-6">
+      <router-outlet></router-outlet>
+    </div>
+    <app-sidebar class="col-3 border border-success">
+      aside
+    </app-sidebar>
+  </div>
