@@ -1,1 +1,18 @@
-<p>sidebar works!</p>
+<div class="card">
+    <div class="card-header">
+        CATEGORÍAS
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <!-- Show All Articles -->
+            <li class="list-group-item" (click)="emitCategorySelection(null)">
+                <a>Todas las categorías</a>
+            </li>
+
+            <!-- Categories -->
+            <li class="list-group-item" *ngFor="let category of categories" (click)="emitCategorySelection(category)">
+                <a>{{ category.name }}</a>
+            </li>
+        </ul>
+    </div>
+</div>

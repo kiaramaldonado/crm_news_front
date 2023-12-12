@@ -1,2 +1,25 @@
-<p>home works!</p>
-<!-- Incluir ngfor para que se muestren las cards estándar de los artículos publicados -->
+<div class="container">
+    <div class="row">
+        <div>
+            <!-- Heading -->
+            <h2 *ngIf="selectedCategory" class="home-heading">{{ selectedCategory.name }}</h2>
+            <h2 *ngIf="!selectedCategory" class="home-heading">GUIRRE Noticiero Blah Blah</h2>
+        </div>
+
+        <div class="col-md-3">
+            <!-- Sidebar -->
+            <app-sidebar [categories]="categories" [selectedCategory]="selectedCategory"
+                (categorySelected)="filterByCategory($event)">
+            </app-sidebar>
+        </div>
+
+        <div class="col-md-9">
+            <!-- Articles -->
+            <div class="row">
+                <div class="col-md-4" *ngFor="let article of filteredArray">
+                    <app-standard-card [article]="article"></app-standard-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
