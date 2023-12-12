@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Article } from 'src/app/core/models/article.interface';
 
 @Component({
   selector: 'app-standard-card',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./standard-card.component.css']
 })
 export class StandardCardComponent {
+  @Input() article: Pick<Article, 'title' | 'excerpt'> = {
+    title: '',
+    excerpt: '',
+  };
 
 }

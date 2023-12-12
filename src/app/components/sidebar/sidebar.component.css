@@ -1,0 +1,9 @@
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+}
+
+.card-header {
+    font-weight: 600;
+    text-align: center;
+}
