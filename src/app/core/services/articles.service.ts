@@ -28,4 +28,13 @@ export class ArticlesService {
       this.httpClient.get<Article[]>(`${this.baseUrl}/categories/${category}`)
     );
   }
+
+  createArticle(body: any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.post<any>(this.baseUrl, body)
+    )
+  }
+
+  // Añadir login request + login response
+
 }
