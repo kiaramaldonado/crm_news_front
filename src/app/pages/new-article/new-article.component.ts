@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ArticlesService } from 'src/app/core/services/articles.service';
 
 @Component({
   selector: 'app-new-article',
@@ -6,5 +8,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./new-article.component.css']
 })
 export class NewArticleComponent {
+
+  newArticle: FormGroup;
+  articlesService = inject(ArticlesService);
+
+  constructor() {
+    this.newArticle = new FormGroup({
+      title: new FormControl(),
+      excerpt: new FormControl(),
+      body: new FormControl(),
+      tags: new FormControl(),
+      category_id: new FormControl(),
+      url: new FormControl(),
+      source: new FormControl(),
+      caption: new FormControl()
+    }, [])
+  }
+
+  async onSubmit() {
+    try {
+      const response = await this.articlesService.createArticle(this.newArticle.value);
+      console.log(response);
+      // this.newArticle.reset();
+    } catch (e: any) {
+      console.log(e);
+    }
+  }
+
 
 }
