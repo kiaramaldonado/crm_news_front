@@ -10,13 +10,13 @@
         <li class="mb-2">
           Dashboard
         </li>
-        <li class="mb-2">
+        <li [routerLink]="['/articulos']" class="mb-2">
            Articulos
             <div class="collapse show" id="home-collapse">
             <ul class="list-unstyled pb-1 small">
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Borradores</a></li>
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Pendientes de revisión </a></li>
-                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded">Publicados</a></li>
+                <li><a href="#" class="link-body-emphasis text-decoration-none rounded">Borradores</a></li>
+                <li><a href="#" class="link-body-emphasis text-decoration-none rounded">Pendientes de revisión </a></li>
+                <li><a href="#" class="link-body-emphasis text-decoration-none rounded">Publicados</a></li>
             </ul>
             </div>
         </li>
@@ -26,7 +26,7 @@
         <li class="mb-5">
           Mensajes
         </li>
-        <li class="mb-2">
+        <li [routerLink]="['/nuevo']" class="mb-2">
         Nuevo Articulo
       </li>
     </ul>

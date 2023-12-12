@@ -23,7 +23,7 @@ const routes: Routes = [
       { path: 'perfil', component: FormEditComponent },
       { path: 'nuevo', component: NewArticleComponent },
       { path: 'edicion', component: EditArticleComponent }, 
-      { path: ':estado', component: ArticlesByUserComponent}
+      { path: 'articulos', component: ArticlesByUserComponent}
     ]
   },
 
