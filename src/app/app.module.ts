@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EditorModule } from 'primeng/editor';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,9 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
     HttpClientModule,
     ReactiveFormsModule,
     EditorModule
+
+
+
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]

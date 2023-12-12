@@ -1,1 +1,14 @@
-<p>profile works!</p>
+<div class="dropdown">
+    <a class="navbar-brand" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+        (click)="onClickUnfold()">
+        <img src="https://this-person-does-not-exist.com/img/avatar-genb888aec7655d4592b0934f755dfa7766.jpg" alt="Icono"
+            class="rounded-circle dropdown-toggle">
+    </a>
+    <ul class="dropdown-menu" [class.show]="openDropdown">
+        <li><a class="dropdown-item" [routerLink]="['/area-personal']" *ngIf="usersService.isLogged()">Área Personal</a>
+        </li>
+        <li><a class="dropdown-item" [routerLink]="['/perfil']" *ngIf="usersService.isLogged()">Perfil de Usuario</a>
+        </li>
+        <li><a class="dropdown-item" (click)="onClickLogout()" *ngIf="usersService.isLogged()">Logout</a></li>
+    </ul>
+</div>
