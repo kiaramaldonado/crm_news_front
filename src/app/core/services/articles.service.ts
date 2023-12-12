@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
 
+type LoginRequest = {};
+type LoginResponse = {};
+
 @Injectable({
   providedIn: 'root'
 })

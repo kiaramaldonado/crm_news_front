@@ -26,6 +26,7 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
 import { DraftCardComponent } from './components/draft-card/draft-card.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +54,7 @@ import { DraftCardComponent } from './components/draft-card/draft-card.component
     HttpClientModule,
     ReactiveFormsModule,
     EditorModule
-   
+  
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
