@@ -8,6 +8,7 @@ export interface Article {
     status: string,
     headline: boolean,
     creation_date: Date,
-    publish_date: Date
+    publish_date: Date,
+    category_id?: number,
 }
 
