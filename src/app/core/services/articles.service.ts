@@ -3,6 +3,9 @@ import { Injectable, inject } from '@angular/core';
 import { Article } from '../models/article.interface';
 import { firstValueFrom } from 'rxjs';
 
+type LoginRequest = {};
+type LoginResponse = {};
+
 @Injectable({
   providedIn: 'root'
 })
