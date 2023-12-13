@@ -3,9 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
 
-type LoginRequest = {};
-type LoginResponse = {};
-
 @Injectable({
   providedIn: 'root'
 })
@@ -32,12 +29,16 @@ export class ArticlesService {
     );
   }
 
-  createArticle(body: any): Promise<any> {
+  createArticle(body: Article): Promise<Article> {
     return firstValueFrom(
-      this.httpClient.post<any>(this.baseUrl, body)
+      this.httpClient.post<Article>(this.baseUrl, body)
     )
   }
 
-  // Añadir login request + login response
+  // login(body: LoginRequest) {
+  //   return firstValueFrom(
+  //     this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, body)
+  //   )
+  // }
 
 }
