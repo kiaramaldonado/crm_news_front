@@ -39,5 +39,18 @@ export class UsersService {
   }
 
 
+  getById(): Promise<User> {
+    return firstValueFrom(
+      this.httpClient.get<User>(`${this.baseUrl}/profile`)
+    );
+  }
+
+  updateById(body: User) {
+    return firstValueFrom(
+      this.httpClient.put(`${this.baseUrl}/profile`, body)
+    );
+  }
+
+
 
 }

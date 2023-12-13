@@ -1,1 +1,40 @@
-<p>form-edit works!</p>
+<div class="containerForm">
+
+    <h2>Perfil de Usuario</h2>
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" formControlName="name">
+        </div>
+
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" formControlName="password">
+        </div>
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Departamento</label>
+            <select class="form-select" formControlName="role">
+                <option value="redactor">Redacción</option>
+                <option value="editor">Edición</option>
+            </select>
+        </div>
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Fecha de nacimiento</label>
+            <input type="text" class="form-control" formControlName="date_of_birth">
+        </div>
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Phone</label>
+            <input type="text" class="form-control" formControlName="phone">
+        </div>
+        <div class="mb-4 col-xs-12 col-md-4">
+            <label class="form-label">Imagen de perfil</label>
+            <input type="text" class="form-control" formControlName="image">
+        </div>
+
+        <button type="submit" value="Enviar" class="btn btn-success">Editar Perfil</button>
+
+
+    </form>
+</div>
