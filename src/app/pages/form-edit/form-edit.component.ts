@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as dayjs from 'dayjs';
 import { UsersService } from 'src/app/core/services/users.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class FormEditComponent {
 
     const response = await this.usersService.getById();
 
-    const { name, password, role, date_of_birth, phone, image } = response;
+    let { name, password, role, date_of_birth, phone, image } = response;
+    date_of_birth = dayjs(date_of_birth).format('YYYY-MM-DD');
     this.editForm.setValue({ name, password, role, date_of_birth, phone, image });
   };
 
