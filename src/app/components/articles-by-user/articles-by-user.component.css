@@ -1,0 +1,13 @@
+h3{
+    margin: 20px 0;
+}
+article{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+.articulo{
+    width: 400px;
+    height: 200px;
+}

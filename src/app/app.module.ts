@@ -24,6 +24,8 @@ import { EditArticleComponent } from './pages/edit-article/edit-article.componen
 import { HomeComponent } from './pages/home/home.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
 import { DraftCardComponent } from './components/draft-card/draft-card.component';
+import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import { DashboardImagesComponent } from './components/dashboard-images/dashboard-images.component';
 
 
 
@@ -45,7 +47,9 @@ import { DraftCardComponent } from './components/draft-card/draft-card.component
     NewArticleComponent,
     EditArticleComponent,
     HomeComponent,
-    DraftCardComponent
+    DraftCardComponent,
+    DashboardHomeComponent,
+    DashboardImagesComponent
     
   ],
   imports: [

@@ -6,7 +6,7 @@
     </figure>
     </a>
      <ul class="list-unstyled ">
-        <li class="mb-1">
+        <li class="mb-1" [routerLink]="['/area-personal']">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" >
           Home
         </button>
@@ -23,13 +23,13 @@
           </ul>
         </div>
       </li>
-      <li class="mb-1">
+      <li class="mb-1" [routerLink]="['imagenes']">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
           Imagenes
         </button>
       </li>
       <li class="border-top my-3"></li>
-      <li class="mb-1">
+      <li class="mb-1" [routerLink]="['nuevo']">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Nuevo Articulo
         </button>
