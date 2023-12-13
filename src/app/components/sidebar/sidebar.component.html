@@ -5,14 +5,30 @@
     <div class="card-body">
         <ul class="list-group">
             <!-- Show All Articles -->
-            <li class="list-group-item" (click)="emitCategorySelection(null)">
-                <a>Todas las categorías</a>
+            <li class="list-group-item" (click)="navigateToCategory($event, null)">
+                <p>Todas las categorías</p>
             </li>
 
-            <!-- Categories -->
-            <li class="list-group-item" *ngFor="let category of categories" (click)="emitCategorySelection(category)">
-                <a>{{ category.name }}</a>
-            </li>
+            <ul class="list-group">
+                <!-- Filter those categories with parent_id set to null -->
+                <ng-container *ngFor="let category of categories">
+                    <ng-container *ngIf="category.parent_id === null">
+                        <li class="list-group-item" (mouseenter)="toggleSubcategories(category, true)"
+                            (mouseleave)="toggleSubcategories(category, false)"
+                            (click)="navigateToCategory($event, category)">
+                            <!-- Navigate to the category route -->
+                            <p>{{ category.name }}</p>
+                            <!-- Subcategories with toggle -->
+                            <ul *ngIf="showSubcategories[category.id]" class="list-group">
+                                <li class="list-group-item" *ngFor="let subcategory of getSubcategories(category.id)"
+                                    (click)="navigateToCategory($event, subcategory)">
+                                    <p>{{ subcategory.name }}</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
         </ul>
     </div>
 </div>

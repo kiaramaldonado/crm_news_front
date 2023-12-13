@@ -7,3 +7,8 @@
     font-weight: 600;
     text-align: center;
 }
+
+p,
+a {
+    text-align: center;
+}
