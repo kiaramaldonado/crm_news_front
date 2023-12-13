@@ -1,9 +1,15 @@
 <div class="container">
     <div class="row">
+
+        <!-- Headline -->
+        <div class="col-md-12" *ngIf="headlineArticle">
+            <app-headline-card [article]="headlineArticle"></app-headline-card>
+        </div>
+
         <div>
             <!-- Heading -->
             <h2 *ngIf="selectedCategory" class="home-heading">{{ selectedCategory.name }}</h2>
-            <h2 *ngIf="!selectedCategory" class="home-heading">GUIRRE Noticiero Blah Blah</h2>
+            <h2 *ngIf="!selectedCategory" class="home-heading empty"> </h2>
         </div>
 
         <div class="col-md-3">
@@ -16,9 +22,11 @@
         <div class="col-md-9">
             <!-- Articles -->
             <div class="row">
-                <div class="col-md-4" *ngFor="let article of filteredArray">
-                    <app-standard-card [article]="article"></app-standard-card>
-                </div>
+                <ng-container *ngFor="let article of standardArticles">
+                    <div class="col-md-4">
+                        <app-standard-card [article]="article"></app-standard-card>
+                    </div>
+                </ng-container>
             </div>
         </div>
     </div>

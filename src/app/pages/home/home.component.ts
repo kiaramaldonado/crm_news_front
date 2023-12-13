@@ -11,7 +11,8 @@ import { ArticlesService } from 'src/app/core/services/articles.service';
 export class HomeComponent {
 
   publishedArray: Article[] = [];
-  filteredArray: Article[] = [];
+  headlineArticle: Article | null = null;
+  standardArticles: Article[] = [];
   categories: Category[] = [];
   selectedCategory: Category | null = null;
   articlesService = inject(ArticlesService);
@@ -19,7 +20,9 @@ export class HomeComponent {
   async ngOnInit() {
     this.publishedArray = await this.articlesService.getAllPublished();
     this.fetchCategories();
-    this.filteredArray = this.publishedArray;
+
+    this.headlineArticle = this.publishedArray.find(article => article.headline)!;
+    this.standardArticles = this.publishedArray.filter(article => !article.headline);
   }
 
   async fetchCategories() {
@@ -29,9 +32,9 @@ export class HomeComponent {
   filterByCategory(category: Category | null) {
     this.selectedCategory = category;
     if (category) {
-      this.filteredArray = this.publishedArray.filter(article => article.category_id === category.id);
+      this.standardArticles = this.publishedArray.filter(article => article.category_id === category.id && !article.headline);
     } else {
-      this.filteredArray = this.publishedArray;
+      this.standardArticles = this.publishedArray.filter(article => !article.headline);
     }
   }
 

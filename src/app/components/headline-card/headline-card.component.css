@@ -1,0 +1,33 @@
+.headline-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.headline-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.headline-card {
+    height: 300px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.headline-card-body {
+    padding: 1.5rem;
+}
+
+.headline-card-title {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.headline-card-text {
+    font-size: 1.2rem;
+    /* Adjust the font size as needed */
+}

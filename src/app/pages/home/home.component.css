@@ -1,6 +1,10 @@
 .home-heading {
     text-align: center;
-    padding: 15px;
+    padding: 10px;
     font-weight: 700;
     text-transform: uppercase;
+}
+
+.empty {
+    height: 58.4px;
 }
