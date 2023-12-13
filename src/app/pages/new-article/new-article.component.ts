@@ -12,6 +12,15 @@ export class NewArticleComponent {
 
   newArticle: FormGroup;
   articlesService = inject(ArticlesService);
+  allCategories: Category[] = [];
+  parentCategories: Category[] = [];
+  subcategories: Category[] = [];
+
+
+  async ngOnInit() {
+    this.allCategories = await this.articlesService.getAllCategories();
+    this.parentCategories = this.allCategories.filter(category => !category.parent_id);
+  }
 
   constructor() {
     this.newArticle = new FormGroup({
@@ -25,15 +34,17 @@ export class NewArticleComponent {
     }, [])
   }
 
-  onChange($event: any) {
-    const categoryId = this.newArticle.get('category_id')?.value;
+  onChange(event: any) {
+    if (event.target.value) {
+      this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value))
+    }
   }
 
   async onSubmit() {
     try {
       const response = await this.articlesService.createArticle(this.newArticle.value);
       console.log(response);
-      // this.newArticle.reset();
+      this.newArticle.reset();
     } catch (e: any) {
       console.log(e);
     }

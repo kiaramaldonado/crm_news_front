@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from 'src/app/core/models/category.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 
 @Component({
@@ -12,10 +13,14 @@ export class EditArticleComponent {
 
   articleId: string = '';
   formArticleEdit: FormGroup;
+  allCategories: Category[] = [];
+  parentCategories: Category[] = [];
+  subcategories: Category[] = [];
 
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
   articlesService = inject(ArticlesService);
+
 
   constructor() {
     this.formArticleEdit = new FormGroup({
@@ -29,7 +34,10 @@ export class EditArticleComponent {
     }, [])
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.allCategories = await this.articlesService.getAllCategories();
+    this.parentCategories = this.allCategories.filter(category => !category.parent_id);
+
     this.activatedRoute.params.subscribe(async params => {
       this.articleId = params['articleId'];
       const response = await this.articlesService.getById(this.articleId)
@@ -37,12 +45,18 @@ export class EditArticleComponent {
       const { title, excerpt, body, category_id, url, source, caption } = response
       this.formArticleEdit.setValue({ title, excerpt, body, category_id, url, source, caption })
     })
+
+  }
+
+  onChange(event: any) {
+    if (event.target.value) {
+      this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value))
+    }
   }
 
   async onSubmit() {
     const response = await this.articlesService.updateById(this.articleId, this.formArticleEdit.value);
     console.log(response);
-
   }
 
 }

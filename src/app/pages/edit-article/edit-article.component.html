@@ -44,17 +44,16 @@
 
         <div class="row">
             <div class="mb-12 col-xs-12 col-md-12">
-                <label class="form-label">Categoria</label>
-                <input type="text" class="form-select" formControlName="category_id" list="category">
-                <datalist id="category">
-                    <option value="Internacional"></option>
-                    <option value="Cultura"></option>
-                    <option value="Ciencia y medioambiente"></option>
-                    <option value="Tecnología"></option>
-                    <option value="Estilos de vida"></option>
-                    <option value="Cine"></option>
-                </datalist>
-
+                <label class="form-label">Categoría</label>
+                <select class="form-select" (change)="onChange($event)">
+                    <option selected>Selecciona una categoría</option>
+                    <option *ngFor="let category of parentCategories" [value]="category.id">{{category.name}}</option>
+                </select>
+                <select *ngIf="subcategories.length" class="form-select" formControlName="category_id">
+                    <option selected>Selecciona una subcategoría</option>
+                    <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{subcategory.name}}
+                    </option>
+                </select>
             </div>
         </div>
         <button type="submit" value="Enviar" class="btn btn-success">Guardar como borrador</button>
