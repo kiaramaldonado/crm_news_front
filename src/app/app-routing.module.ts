@@ -24,11 +24,11 @@ const routes: Routes = [
     children: [
       { path: 'perfil', component: FormEditComponent },
       // { path: 'home', component: DashboardHomeComponent},
-      { path: 'imagenes', component: DashboardImagesComponent},
-      { path: 'articulos', component: ArticlesByUserComponent},
+      { path: 'imagenes', component: DashboardImagesComponent },
+      { path: 'articulos', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
-      { path: 'edicion', component: EditArticleComponent }, 
-      
+      { path: 'edicion/:articleId', component: EditArticleComponent },
+
     ]
   },
 

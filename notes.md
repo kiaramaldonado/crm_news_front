@@ -33,3 +33,5 @@ PAGES:
       - Botón: borrador/revisión
       - Botón: publicar, ¿headline(t/f)?
 
+    - Detalle artículo
+

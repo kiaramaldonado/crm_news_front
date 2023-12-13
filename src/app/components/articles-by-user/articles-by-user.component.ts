@@ -15,9 +15,9 @@ export class ArticlesByUserComponent {
 
   articlesArr: Article[] = [];
 
-  async ngOnInit(){
-    try{
-      this.articlesArr = await this.articlesService.getById()
+  async ngOnInit() {
+    try {
+      this.articlesArr = await this.articlesService.getByUser()
     } catch (error) {
       console.log(error)
     }

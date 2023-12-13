@@ -1,10 +1,10 @@
-
 <div class="card-container">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{oneArticle.title}}</h5>
-                <p class="card-text">{{oneArticle.excerpt}}</p>
-                <p class="card-text">{{oneArticle.creation_date}}</p>
-            </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{oneArticle.title}}</h5>
+            <p class="card-text">{{oneArticle.excerpt}}</p>
+            <p class="card-text">{{oneArticle.creation_date}}</p>
         </div>
+        <button [routerLink]="['/area-personal','edicion', oneArticle.id]">Editar</button>
+    </div>
 </div>

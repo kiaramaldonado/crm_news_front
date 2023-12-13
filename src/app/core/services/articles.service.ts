@@ -29,7 +29,7 @@ export class ArticlesService {
     );
   }
 
-  getById():Promise<Article[]> {
+  getByUser(): Promise<Article[]> {
     return firstValueFrom(
       this.httpClient.get<Article[]>(`${this.baseUrl}/user`)
     )
@@ -40,6 +40,19 @@ export class ArticlesService {
       this.httpClient.post<Article>(this.baseUrl, body)
     )
   }
+
+  getById(articleId: string | number): Promise<Article> {
+    return firstValueFrom(
+      this.httpClient.get<Article>(`${this.baseUrl}/${articleId}`)
+    )
+  }
+
+  updateById(articleId: string | number, body: Article) {
+    return firstValueFrom(
+      this.httpClient.put<Article>(`${this.baseUrl}/${articleId}`, body)
+    )
+  }
+
 
   // login(body: LoginRequest) {
   //   return firstValueFrom(

@@ -43,19 +43,8 @@
         </div>
 
         <div class="row">
-            <div class="mb-6 col-xs-12 col-md-6">
-                <label class="form-label">Tags</label>
-                <input type="text" class="form-control" formControlName="tags">
-            </div>
-            <div class="mb-6 col-xs-12 col-md-6">
+            <div class="mb-12 col-xs-12 col-md-12">
                 <label class="form-label">Categoria</label>
-                <!-- <select class="form-select" formControlName="category_id" (change)="onChange($event)">
-                    <option value="1">Internacional</option>
-                    <option value="2">Cultura</option>
-                    <option value="3">Ciencia y medioambiente</option>
-                    <option value="4">Tecnología</option>
-                    <option value="5">Estilos de vida</option>
-                </select> -->
                 <input type="text" class="form-select" formControlName="category_id" list="category">
                 <datalist id="category">
                     <option value="Internacional"></option>
@@ -68,6 +57,6 @@
 
             </div>
         </div>
-        <button type="submit" value="Enviar" class="btn btn-success">Enviar</button>
+        <button type="submit" value="Enviar" class="btn btn-success">Guardar como borrador</button>
     </form>
 </div>

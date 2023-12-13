@@ -18,7 +18,6 @@ export class NewArticleComponent {
       title: new FormControl(),
       excerpt: new FormControl(),
       body: new FormControl(),
-      tags: new FormControl(),
       category_id: new FormControl(),
       url: new FormControl(),
       source: new FormControl(),

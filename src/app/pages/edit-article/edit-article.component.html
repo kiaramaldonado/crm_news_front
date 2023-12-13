@@ -1,1 +1,62 @@
-<p>edit-article works!</p>
+<div class="container">
+
+    <h2 class="fw-bolder display-3">Edición de artículo</h2>
+    <hr>
+    <form [formGroup]="formArticleEdit" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Título</label>
+                <input type="text" class="form-control" formControlName="title">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Extracto/Resumen</label>
+                <input type="text" class="form-control" formControlName="excerpt">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Contenido</label>
+                <p-editor [style]="{ height: '320px' }" formControlName="body">
+                </p-editor>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Imagen</label>
+                <input type="text" class="form-control" formControlName="url">
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-6 col-xs-12 col-md-6">
+                <label class="form-label">Fuente</label>
+                <input type="text" class="form-control" formControlName="source">
+            </div>
+            <div class="mb-6 col-xs-12 col-md-6">
+                <label class="form-label">Pie de foto</label>
+                <input type="text" class="form-control" formControlName="caption">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-12 col-xs-12 col-md-12">
+                <label class="form-label">Categoria</label>
+                <input type="text" class="form-select" formControlName="category_id" list="category">
+                <datalist id="category">
+                    <option value="Internacional"></option>
+                    <option value="Cultura"></option>
+                    <option value="Ciencia y medioambiente"></option>
+                    <option value="Tecnología"></option>
+                    <option value="Estilos de vida"></option>
+                    <option value="Cine"></option>
+                </datalist>
+
+            </div>
+        </div>
+        <button type="submit" value="Enviar" class="btn btn-success">Guardar como borrador</button>
+    </form>
+</div>
