@@ -9,10 +9,16 @@
     color: inherit;
 }
 
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
 .card {
     flex: 1 0 calc(25% - 20px);
     max-width: 18rem;
-    height: 280px;
+    height: 360px;
+    /* Adjust the default height as needed */
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
@@ -29,4 +35,8 @@
 
 .card-title {
     font-weight: 600;
+}
+
+.card-text {
+    font-size: 0.875rem;
 }
