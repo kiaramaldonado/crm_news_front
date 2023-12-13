@@ -7,7 +7,7 @@
     <ul class="dropdown-menu" [class.show]="openDropdown">
         <li><a class="dropdown-item" [routerLink]="['/area-personal']" *ngIf="usersService.isLogged()">Área Personal</a>
         </li>
-        <li><a class="dropdown-item" [routerLink]="['/perfil']" *ngIf="usersService.isLogged()">Perfil de Usuario</a>
+        <li><a class="dropdown-item" [routerLink]="['area-personal/perfil']" *ngIf="usersService.isLogged()">Perfil de Usuario</a>
         </li>
         <li><a class="dropdown-item" (click)="onClickLogout()" *ngIf="usersService.isLogged()">Logout</a></li>
     </ul>

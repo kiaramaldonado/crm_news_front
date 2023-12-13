@@ -23,6 +23,10 @@ import { NewArticleComponent } from './pages/new-article/new-article.component';
 import { EditArticleComponent } from './pages/edit-article/edit-article.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
+import { DraftCardComponent } from './components/draft-card/draft-card.component';
+import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import { DashboardImagesComponent } from './components/dashboard-images/dashboard-images.component';
+
 
 
 @NgModule({
@@ -42,7 +46,11 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
     FormEditComponent,
     NewArticleComponent,
     EditArticleComponent,
-    HomeComponent
+    HomeComponent,
+    DraftCardComponent,
+    DashboardHomeComponent,
+    DashboardImagesComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -50,9 +58,7 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
     HttpClientModule,
     ReactiveFormsModule,
     EditorModule
-
-
-
+  
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true }],
   bootstrap: [AppComponent]
