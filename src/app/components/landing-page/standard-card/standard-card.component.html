@@ -1,12 +1,14 @@
 <div class="card-container">
-    <a href="#" class="card-link">
-        <div class="card mb-3">
-            <img [src]="article.url" class="card-img-top">
-            <div class="card-body">
-                <h5 class="card-title">{{ article.title }}</h5>
-                <p class="card-text">{{ article.excerpt.length > 100 ? article.excerpt.substring(0, 100) + '...' :
-                    article.excerpt }}</p>
+    <ng-container *ngIf="article.category_id !== undefined">
+        <a [routerLink]="['/', transformTitle(article.title)]" class="card-link">
+            <div class="card mb-3">
+                <img [src]="article.url" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.excerpt.length > 100 ? article.excerpt.substring(0, 100) + '...' :
+                        article.excerpt }}</p>
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </ng-container>
 </div>

@@ -1,0 +1,21 @@
+<nav class="navbar">
+    <div class="navbar-body">
+        <ul class="navbar-list">
+            <ng-container *ngFor="let category of categories">
+                <ng-container *ngIf="category.parent_id === null">
+                    <li class="navbar-item" (mouseenter)="toggleSubcategories(category, true)"
+                        (mouseleave)="toggleSubcategories(category, false)"
+                        (click)="navigateToCategory($event, category)">
+                        <p>{{ category.name }}</p>
+                        <ul *ngIf="showSubcategories[category.id]" class="navbar-sublist">
+                            <li class="navbar-item" *ngFor="let subcategory of getSubcategories(category.id)"
+                                (click)="navigateToCategory($event, subcategory)">
+                                <p>{{ subcategory.name }}</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ng-container>
+        </ul>
+    </div>
+</nav>

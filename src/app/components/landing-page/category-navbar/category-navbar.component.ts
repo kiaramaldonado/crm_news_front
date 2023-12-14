@@ -3,11 +3,11 @@ import { Category } from 'src/app/core/models/category.interface';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-category-navbar',
+  templateUrl: './category-navbar.component.html',
+  styleUrls: ['./category-navbar.component.css']
 })
-export class SidebarComponent {
+export class CategoryNavbarComponent {
   @Input() categories: Category[] = [];
   @Input() selectedCategory: Category | null = null;
   @Output() categorySelected = new EventEmitter<Category | null>();
@@ -34,11 +34,13 @@ export class SidebarComponent {
     } else {
       event.stopPropagation(); // Stop the event propagation
       const route = category.parent_id === null ? '/guirre' : '/guirre';
-      this.router.navigate([route, category.name.toLowerCase()]);
+      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-');
+      this.router.navigate([route, categoryNameWithDashes]);
 
       this.emitCategorySelection(category);
     }
   }
+
 
   // Toggle to show or not show the subcategories
   showSubcategories: { [categoryId: number]: boolean } = {};

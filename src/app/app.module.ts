@@ -13,7 +13,7 @@ import { MainNavbarComponent } from './components/main-navbar/main-navbar.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { HeadlineCardComponent } from './components/landing-page/headline-card/headline-card.component';
 import { StandardCardComponent } from './components/landing-page/standard-card/standard-card.component';
-import { SidebarComponent } from './components/landing-page/sidebar/sidebar.component';
+import { CategoryNavbarComponent } from './components/landing-page/category-navbar/category-navbar.component';
 import { ArticlesByUserComponent } from './components/dashboard/articles-by-user/articles-by-user.component';
 import { DashboardNavbarComponent } from './components/dashboard/dashboard-navbar/dashboard-navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -40,7 +40,7 @@ import { ImageCardComponent } from './components/dashboard/image-card/image-card
     FooterComponent,
     HeadlineCardComponent,
     StandardCardComponent,
-    SidebarComponent,
+    CategoryNavbarComponent,
     ArticlesByUserComponent,
     DashboardNavbarComponent,
     ProfileComponent,
