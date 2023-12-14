@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
+import { Assignment } from '../models/assignment.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -54,10 +55,30 @@ export class ArticlesService {
   }
 
 
-  // login(body: LoginRequest) {
-  //   return firstValueFrom(
-  //     this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, body)
-  //   )
-  // }
+  assignArticle(articleId: string | number, body: Assignment) {
+    return firstValueFrom(
+      this.httpClient.post<Assignment>(`${this.baseUrl}/asign/${articleId}`, body)
+    )
+  }
 
 }
+
+
+//router.post('/asign/:articleId', checkToken, ArticlesController.asignArticle);
+
+// const asignArticle = async (req, res) => {
+//   try {
+//       const {user_id, comments, actual_status } = req.body;
+//       const {articleId}  = req.params;
+//       console.log(articleId);
+//       console.log(req.body)
+//       const [nuevoRegistro] = await ArticleModel.insertUsersHasArticles(user_id, articleId, comments, actual_status);
+//       const [article] = await ArticleModel.selectById(articleId);
+//       const [statusArticle] = await ArticleModel.updateStatusArticle(articleId, {status:actual_status})
+//       console.log(nuevoRegistro[0]);
+//       console.log(statusArticle);
+//       res.json(nuevoRegistro[0]);
+//   } catch (error) {
+//       res.json({ error: error.message });
+//   }
+// }
