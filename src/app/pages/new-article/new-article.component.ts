@@ -27,7 +27,7 @@ export class NewArticleComponent {
       title: new FormControl(),
       excerpt: new FormControl(),
       body: new FormControl(),
-      category_id: new FormControl(),
+      category_id: new FormControl(''),
       url: new FormControl(),
       source: new FormControl(),
       caption: new FormControl()
@@ -36,7 +36,7 @@ export class NewArticleComponent {
 
   onChange(event: any) {
     if (event.target.value) {
-      this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value))
+      this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value));
     }
   }
 

@@ -42,8 +42,8 @@ export class EditArticleComponent {
       this.articleId = params['articleId'];
       const response = await this.articlesService.getById(this.articleId)
 
-      const { title, excerpt, body, category_id, url, source, caption } = response
-      this.formArticleEdit.setValue({ title, excerpt, body, category_id, url, source, caption })
+      const { title, excerpt, body, url, source, caption } = response
+      this.formArticleEdit.setValue({ title, excerpt, body, category_id: '', url, source, caption })
     })
 
   }
@@ -55,8 +55,14 @@ export class EditArticleComponent {
   }
 
   async onSubmit() {
-    const response = await this.articlesService.updateById(this.articleId, this.formArticleEdit.value);
-    console.log(response);
+    try {
+      const response = await this.articlesService.updateById(this.articleId, this.formArticleEdit.value);
+      console.log(response);
+      this.router.navigate(['area-personal/articulos']);
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
 }
