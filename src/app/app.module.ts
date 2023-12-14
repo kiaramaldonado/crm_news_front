@@ -28,6 +28,7 @@ import { DashboardHomeComponent } from './components/dashboard/dashboard-home/da
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { ImageCardComponent } from './components/dashboard/image-card/image-card.component';
+import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 
 
 
@@ -53,7 +54,8 @@ import { ImageCardComponent } from './components/dashboard/image-card/image-card
     DashboardHomeComponent,
     DashboardImagesComponent,
     ArticleDetailComponent,
-    ImageCardComponent
+    ImageCardComponent,
+    FormAssignmentComponent
 
   ],
   imports: [

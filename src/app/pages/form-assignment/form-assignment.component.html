@@ -1,0 +1,53 @@
+<div class="container">
+
+    <!-- <app-article-detail *ngIf="userInfo && userInfo.role === 'redactor'"></app-article-detail> -->
+
+    <h2 class="fw-bolder display-3">Opciones del artículo</h2>
+    <hr>
+    <form [formGroup]="newAssignment" (ngSubmit)="onSubmit()">
+
+        <div class="mb-12 col-xs-12 col-md-12" *ngIf="userInfo && userInfo.role === 'editor'">
+            <h3>Reasignar para revisión</h3>
+            <hr>
+            <label class="form-label">Departamento de redacción</label>
+            <select class="form-select" formControlName="user_id">
+                <option value="" selected>Selecciona una opción</option>
+                <option *ngFor="let writer of allWriters" [value]="writer.id">{{writer.name}}</option>
+            </select>
+        </div>
+
+        <div class="mb-12 col-xs-12 col-md-12" *ngIf="userInfo && userInfo.role === 'redactor'">
+            <h3>Asignar para su revisión</h3>
+            <hr>
+            <label class="form-label">Departamento de edición</label>
+            <select class="form-select" formControlName="user_id">
+                <option value="" selected>Selecciona una opción</option>
+                <option *ngFor="let editor of allEditors" [value]="editor.id">{{editor.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px" formControlName="comments"></textarea>
+            <label for="floatingTextarea2">Deja aquí tus comentarios o sugerencias.</label>
+        </div>
+
+        <div class="form-check form-switch" *ngIf="userInfo && userInfo.role === 'editor'">
+            <h3>Publicar artículo</h3>
+            <hr>
+            <input class="form-check-input" type="checkbox">
+            <label class="form-check-label">Establecer como titular</label>
+        </div>
+
+        <div class="mb-12 col-xs-12 col-md-12" *ngIf="userInfo && userInfo.role === 'editor'">
+            <label class="form-label">Opciones</label>
+            <select class="form-select" formControlName="actual_status">
+                <option value="" selected>Selecciona una opción</option>
+                <option value="borrador">Reenviar para revisión</option>
+                <option value="publicado">Publicar</option>
+            </select>
+        </div>
+
+        <button type="submit" value="Enviar" class="btn btn-success">Aceptar</button>
+    </form>
+</div>
