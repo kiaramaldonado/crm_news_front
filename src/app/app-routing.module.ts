@@ -10,7 +10,6 @@ import { EditArticleComponent } from './pages/edit-article/edit-article.componen
 import { authGuard } from './core/guards/auth.guard';
 import { ArticlesByUserComponent } from './components/dashboard/articles-by-user/articles-by-user.component';
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
-import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 
@@ -34,7 +33,6 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'perfil', component: FormEditComponent },
-      // { path: 'home', component: DashboardHomeComponent},
       { path: 'imagenes', component: DashboardImagesComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
