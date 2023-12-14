@@ -26,6 +26,7 @@ import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor
 import { DraftCardComponent } from './components/dashboard/draft-card/draft-card.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
+import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 
 
 
@@ -49,7 +50,8 @@ import { DashboardImagesComponent } from './components/dashboard/dashboard-image
     HomeComponent,
     DraftCardComponent,
     DashboardHomeComponent,
-    DashboardImagesComponent
+    DashboardImagesComponent,
+    ArticleDetailComponent
 
   ],
   imports: [
