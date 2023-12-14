@@ -11,6 +11,7 @@ import { authGuard } from './core/guards/auth.guard';
 import { ArticlesByUserComponent } from './components/dashboard/articles-by-user/articles-by-user.component';
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
+import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
@@ -34,6 +35,7 @@ const routes: Routes = [
       { path: 'articulos', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
       { path: 'edicion/:articleId', component: EditArticleComponent },
+      { path: 'asignacion/:articleId', component: FormAssignmentComponent }
 
     ]
   },

@@ -40,7 +40,7 @@ export class EditArticleComponent {
 
     this.activatedRoute.params.subscribe(async params => {
       this.articleId = params['articleId'];
-      const response = await this.articlesService.getById(this.articleId)
+      const response = await this.articlesService.getById(this.articleId);
 
       const { title, excerpt, body, url, source, caption } = response
       this.formArticleEdit.setValue({ title, excerpt, body, category_id: '', url, source, caption })
