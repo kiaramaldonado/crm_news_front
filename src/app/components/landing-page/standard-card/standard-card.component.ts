@@ -15,17 +15,6 @@ export class StandardCardComponent {
     category_id: 1,
   };
 
-  categories: Category[] = [];
-
-  getCategoryRoute(categoryId: number): string {
-    const category = this.categories.find(c => c.id === categoryId);
-    if (category) {
-      return category.name.toLowerCase().replace(/[,\s]+/g, '-');
-    } else {
-      return '';
-    }
-  }
-
   transformTitle(title: string): string {
     return title.toLowerCase().replace(/[,\s]+/g, '-');
   }
