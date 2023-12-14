@@ -19,7 +19,7 @@ const routes: Routes = [
     path: 'guirre',
     component: HomeComponent,
     children: [
-      { path: ':articleTitle', component: ArticleDetailComponent },
+
       {
         path: ':category', component: HomeComponent
       },
@@ -41,6 +41,7 @@ const routes: Routes = [
 
     ]
   },
+  { path: ':articleTitle', component: ArticleDetailComponent },
 
   { path: '**', redirectTo: '/guirre' }
 ];

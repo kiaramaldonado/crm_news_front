@@ -10,10 +10,13 @@ import { ArticlesService } from 'src/app/core/services/articles.service';
 })
 export class ArticleDetailComponent {
 
-  // article: Article;
-  // activatedRoute = inject(ActivatedRoute);
-  // articlesService = inject(ArticlesService);
+  article!: Article;
+  activatedRoute = inject(ActivatedRoute);
+  articlesService = inject(ArticlesService);
 
+  ngOnInit() {
+    this.activatedRoute.params.subscribe(async params => this.article = await this.articlesService.getById(parseInt(params['articleId'])))
+  }
 
 
 }

@@ -1,6 +1,6 @@
 <div class="card-container">
     <ng-container *ngIf="article.category_id !== undefined">
-        <a [routerLink]="['/', article.title]" class="card-link">
+        <a [routerLink]="['/', transformTitle(article.title)]" class="card-link">
             <div class="card mb-3">
                 <img [src]="article.url" class="card-img-top">
                 <div class="card-body">

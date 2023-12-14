@@ -15,6 +15,7 @@ export class StandardCardComponent {
     category_id: 1,
   };
 
+
   transformTitle(title: string): string {
     return title.toLowerCase().replace(/[,\s]+/g, '-');
   }
