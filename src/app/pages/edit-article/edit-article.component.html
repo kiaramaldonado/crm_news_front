@@ -50,7 +50,7 @@
                     <option *ngFor="let category of parentCategories" [value]="category.id">{{category.name}}</option>
                 </select>
                 <select *ngIf="subcategories.length" class="form-select" formControlName="category_id">
-                    <option selected>Selecciona una subcategoría</option>
+                    <option value="" selected>Selecciona una subcategoría</option>
                     <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{subcategory.name}}
                     </option>
                 </select>
