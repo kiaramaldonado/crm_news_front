@@ -27,6 +27,7 @@ import { DraftCardComponent } from './components/dashboard/draft-card/draft-card
 import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
+import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 
 
 
@@ -51,7 +52,8 @@ import { ArticleDetailComponent } from './pages/article-detail/article-detail.co
     DraftCardComponent,
     DashboardHomeComponent,
     DashboardImagesComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    FormAssignmentComponent
 
   ],
   imports: [
