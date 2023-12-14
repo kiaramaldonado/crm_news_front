@@ -1,29 +1,28 @@
+<div class="col-md-12">
+    <!-- Navigation Bar for Categories -->
+    <app-category-navbar [categories]="categories" [selectedCategory]="selectedCategory"
+        (categorySelected)="filterByCategory($event)">
+    </app-category-navbar>
+</div>
+
 <div class="container">
     <div class="row">
-
-        <!-- Headline -->
-        <div class="col-md-12" *ngIf="headlineArticle">
-            <app-headline-card [article]="headlineArticle"></app-headline-card>
-        </div>
 
         <div>
             <!-- Heading -->
             <h2 *ngIf="selectedCategory" class="home-heading">{{ selectedCategory.name }}</h2>
-            <h2 *ngIf="!selectedCategory" class="home-heading empty"> </h2>
         </div>
 
-        <div class="col-md-3">
-            <!-- Sidebar -->
-            <app-sidebar [categories]="categories" [selectedCategory]="selectedCategory"
-                (categorySelected)="filterByCategory($event)">
-            </app-sidebar>
+        <!-- Headline -->
+        <div class="col-md-12" *ngIf="!selectedCategory && headlineArticle">
+            <app-headline-card [article]="headlineArticle"></app-headline-card>
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-12">
             <!-- Articles -->
             <div class="row">
                 <ng-container *ngFor="let article of standardArticles">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <app-standard-card [article]="article"></app-standard-card>
                     </div>
                 </ng-container>

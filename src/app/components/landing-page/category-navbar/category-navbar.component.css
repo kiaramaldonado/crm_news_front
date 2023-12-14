@@ -1,0 +1,47 @@
+.navbar {
+    background-color: #ebebeb;
+    padding: 10px;
+    justify-content: center;
+}
+
+.navbar-body {
+    text-align: center;
+}
+
+.navbar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.navbar-item {
+    cursor: pointer;
+    padding: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-item:hover {
+    background-color: lightgrey;
+}
+
+.navbar-sublist {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 5px;
+}
+
+.navbar-item:hover .navbar-sublist {
+    display: block;
+}
+
+.navbar-sublist .navbar-item {
+    padding: 10px;
+    text-align: left;
+    white-space: nowrap;
+    /* Evita el salto de línea en subcategorías largas */
+}
