@@ -45,7 +45,11 @@ export class UsersService {
     );
   }
 
-
+  getByRole(role: string): Promise<User[]> {
+    return firstValueFrom(
+      this.httpClient.get<User[]>(`${this.baseUrl}/role/${role}`)
+    )
+  }
 
   updateById(body: User) {
     return firstValueFrom(

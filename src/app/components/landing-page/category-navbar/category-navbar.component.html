@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar-body">
-        <ul class="navbar-list">
+        <ul class="navbar-list border-top border-bottom">
             <ng-container *ngFor="let category of categories">
                 <ng-container *ngIf="category.parent_id === null">
                     <li class="navbar-item" (mouseenter)="toggleSubcategories(category, true)"

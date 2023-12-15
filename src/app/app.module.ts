@@ -24,9 +24,12 @@ import { EditArticleComponent } from './pages/edit-article/edit-article.componen
 import { HomeComponent } from './pages/home/home.component';
 import { AuthTokenInterceptor } from './core/interceptors/auth-token.interceptor';
 import { DraftCardComponent } from './components/dashboard/draft-card/draft-card.component';
-import { DashboardHomeComponent } from './components/dashboard/dashboard-home/dashboard-home.component';
+import { HeaderLandingPageComponent } from './components/landing-page/header-landing-page/header-landing-page.component';
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
+import { ImageCardComponent } from './components/dashboard/image-card/image-card.component';
+import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
+import { HomeAppComponent } from './pages/home-app/home-app.component';
 
 
 
@@ -49,9 +52,12 @@ import { ArticleDetailComponent } from './pages/article-detail/article-detail.co
     EditArticleComponent,
     HomeComponent,
     DraftCardComponent,
-    DashboardHomeComponent,
+    HeaderLandingPageComponent,
     DashboardImagesComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    ImageCardComponent,
+    FormAssignmentComponent,
+    HomeAppComponent
 
   ],
   imports: [

@@ -5,6 +5,11 @@
             <p class="card-text">{{oneArticle.excerpt}}</p>
             <p class="card-text">{{oneArticle.creation_date | date: 'dd-MM-YYYY'}}</p>
         </div>
-        <button [routerLink]="['/area-personal','edicion', oneArticle.id]">Editar</button>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary"
+                [routerLink]="['/area-personal','edicion', oneArticle.id]">Editar</button>
+            <button type="button" class="btn btn-outline-primary"
+                [routerLink]="['/area-personal','asignacion',oneArticle.id]">Asignar</button>
+        </div>
     </div>
 </div>

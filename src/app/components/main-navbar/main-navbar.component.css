@@ -2,3 +2,11 @@ img {
     height: 6rem;
     width: 15rem;
 }
+
+.container-fluid{
+    height: 4vh;
+}
+
+.usuario{
+    margin-right: 80px;
+}

@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 10px;
+    justify-content: center;
 }
 
 .headline-card-link {
