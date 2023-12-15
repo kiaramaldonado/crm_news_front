@@ -1,10 +1,11 @@
 /* @import "../src/assets/reset.css"; */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-img{
+
+img {
     width: 100%;
     height: auto;
     display: block;
@@ -23,8 +24,8 @@ img{
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
 
-:root{
+:root {
 
-    --color-primary : #F5DF7E;
-    --color-hover : #f4d54b;
+    --color-primary: #F5DF7E;
+    --color-hover: #f4d54b;
 }

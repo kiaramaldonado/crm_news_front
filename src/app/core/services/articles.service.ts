@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
 import { Assignment } from '../models/assignment.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -60,6 +61,13 @@ export class ArticlesService {
       this.httpClient.post<Assignment>(`${this.baseUrl}/asign/${articleId}`, body)
     )
   }
+  getBySlug(slug: string): Promise<Article> {
+    return firstValueFrom(
+      this.httpClient.get<Article>(`${this.baseUrl}/article/${slug}`)
+    )
+  }
+
+
 
 }
 
