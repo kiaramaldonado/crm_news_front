@@ -12,5 +12,6 @@ export interface Article {
     creator_id: number,
     url: string,
     source: string,
-    caption: string
+    caption: string,
+    slug: string
 }

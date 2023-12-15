@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,10 +55,12 @@ export class ArticlesService {
   }
 
 
-  // login(body: LoginRequest) {
-  //   return firstValueFrom(
-  //     this.httpClient.post<LoginResponse>(`${this.baseUrl}/login`, body)
-  //   )
-  // }
+  getBySlug(slug: string): Promise<Article> {
+    return firstValueFrom(
+      this.httpClient.get<Article>(`${this.baseUrl}/article/${slug}`)
+    )
+  }
+
+
 
 }

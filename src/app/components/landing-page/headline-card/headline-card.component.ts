@@ -7,10 +7,11 @@ import { Article } from 'src/app/core/models/article.interface';
   styleUrls: ['./headline-card.component.css']
 })
 export class HeadlineCardComponent {
-  @Input() article: Pick<Article, 'title' | 'excerpt' | 'url'> = {
+  @Input() article: Pick<Article, 'title' | 'excerpt' | 'url' | 'slug'> = {
     title: '',
     excerpt: '',
-    url: ''
+    url: '',
+    slug: ''
   };
 
 }

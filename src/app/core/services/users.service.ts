@@ -45,6 +45,8 @@ export class UsersService {
     );
   }
 
+
+
   updateById(body: User) {
     return firstValueFrom(
       this.httpClient.put(`${this.baseUrl}/profile`, body)

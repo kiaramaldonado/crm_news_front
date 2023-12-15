@@ -9,18 +9,5 @@ import { UsersService } from './core/services/users.service';
 })
 export class AppComponent {
 
-  // TODO: Eliminar de app.component y trasladar al componente correspondiente
-  usersArray: User[] = [];
 
-  usersService = inject(UsersService);
-
-  async ngOnInit() {
-    try {
-      this.usersArray = await this.usersService.getAll();
-      console.log(this.usersArray);
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
 }

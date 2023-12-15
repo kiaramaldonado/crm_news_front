@@ -8,15 +8,11 @@ import { Category } from 'src/app/core/models/category.interface';
   styleUrls: ['./standard-card.component.css']
 })
 export class StandardCardComponent {
-  @Input() article: Pick<Article, 'title' | 'excerpt' | 'url' | 'category_id'> = {
+  @Input() article: Pick<Article, 'title' | 'excerpt' | 'url' | 'category_id' | 'slug'> = {
     title: '',
     excerpt: '',
     url: '',
     category_id: 1,
+    slug: '',
   };
-
-
-  transformTitle(title: string): string {
-    return title.toLowerCase().replace(/[,\s]+/g, '-');
-  }
 }

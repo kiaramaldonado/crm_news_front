@@ -1,1 +1,30 @@
-<p>article-detail works!</p>
+<div class="container mt-5" *ngIf="article">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="display-4">{{ article.title }}</h2>
+            <p class="mb-3">{{ article.excerpt }}</p>
+            <div class="text-center">
+                <img [src]="article.url" alt="Imagen del artículo" class="img-fluid mt-3 mb-2 rounded"
+                    style="width: 70%;">
+                <p class="small text-muted mb-3">{{ article.caption }} / {{ article.source }}</p>
+            </div>
+            <p [innerHTML]="article.body" class="mb-3"></p>
+            <p class="text-muted">Publicado el {{ article.publish_date | date: 'dd/MM/yyyy HH:mm:ss' }}</p>
+        </div>
+    </div>
+
+    <div class="row mt-4" *ngIf="creatorInfo">
+        <div class="col-md-6 offset-md-3 text-center">
+
+            <img [src]="creatorInfo.image" alt="Imagen del autor" class="mr-3 rounded-circle"
+                style="width: 50px; height: 50px; display: inline-block;">
+
+
+            <div class="row mt-2">
+                <div class="col">
+                    <h5>{{ creatorInfo.name }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
