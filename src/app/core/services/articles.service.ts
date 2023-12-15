@@ -48,6 +48,12 @@ export class ArticlesService {
     )
   }
 
+  getByParentCategory(idParentCategory: number | string): Promise<Article[]> {
+    return firstValueFrom(
+      this.httpClient.get<Article[]>(`${this.baseUrl}/parentCategory/${idParentCategory}`)
+    )
+  }
+
   updateById(articleId: string | number, body: Article) {
     return firstValueFrom(
       this.httpClient.put<Article>(`${this.baseUrl}/${articleId}`, body)
