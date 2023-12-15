@@ -37,6 +37,7 @@ const routes: Routes = [
       // { path: 'home', component: DashboardHomeComponent},
       { path: 'imagenes', component: DashboardImagesComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
+      { path: 'articulos/:status', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
       { path: 'edicion/:articleId', component: EditArticleComponent },
       { path: 'asignacion/:articleId', component: FormAssignmentComponent }
