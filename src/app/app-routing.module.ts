@@ -35,6 +35,7 @@ const routes: Routes = [
       { path: 'perfil', component: FormEditComponent },
       { path: 'imagenes', component: DashboardImagesComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
+      { path: 'articulos/:status', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
       { path: 'edicion/:articleId', component: EditArticleComponent },
       { path: 'asignacion/:articleId', component: FormAssignmentComponent }

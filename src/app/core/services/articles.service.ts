@@ -36,6 +36,12 @@ export class ArticlesService {
     )
   }
 
+  getByStatus(status:string) {
+    return firstValueFrom(
+      this.httpClient.get<any[]>(`${this.baseUrl}/status/${status}`)
+    )
+  }
+
   createArticle(body: Article): Promise<Article> {
     return firstValueFrom(
       this.httpClient.post<Article>(this.baseUrl, body)
