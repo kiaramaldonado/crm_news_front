@@ -21,7 +21,7 @@
 }
 
 .navbar-item:hover {
-    background-color: lightgrey;
+    background-color: var(--color-primary)
 }
 
 .navbar-sublist {
