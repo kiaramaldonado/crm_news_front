@@ -38,8 +38,16 @@
 }
 
 .navbar-sublist .navbar-item {
-    padding: 10px;
+    padding: 8px;
     text-align: left;
     white-space: nowrap;
     /* Evita el salto de línea en subcategorías largas */
+}
+
+li {
+    list-style: none;
+}
+
+p {
+    margin: 0;
 }
