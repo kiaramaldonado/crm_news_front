@@ -17,8 +17,11 @@
 
 <main class="form-signin w-100 m-auto">
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <img class="mb-4" src="../../../assets/images/logo_portada.png" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <figure [routerLink]="['/guirre']">
+        <img class="mb-4" src="../../../assets/images/logo_portada.png" alt="" >
+    </figure>
+    
+    <h1 class="h3 mb-3 text-center fw-normal">Inicia Sesión</h1>
 
     <div class="form-floating">
       <input type="email" formControlName="email" class="form-control" id="floatingInput" placeholder="name@example.com">
@@ -35,7 +38,10 @@
         Remember me
       </label>
     </div>
-    <button class="btn btn-primary w-100 py-2" type="submit" value="Enviar">Sign in</button>
-    <p class="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+    <button class="btn btn-warning w-100 py-2" type="submit" value="Enviar">Sign in</button>
+    <div class="registro">
+    <p>Si no tienes cuenta: <a [routerLink]="['/registro']">Registrate</a> </p>
+    </div>
+    <p class="mt-5 mb-3 text-body-secondary text-center">&copy; 2017–2023</p>
   </form>
 </main>

@@ -3,6 +3,12 @@ body {
   height: 100%;
 }
 
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .form-signin {
   max-width: 330px;
   padding: 1rem;
@@ -22,4 +28,11 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.registro{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    
 }
