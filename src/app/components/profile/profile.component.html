@@ -1,12 +1,12 @@
 <div class="dropdown mt-3">
     <a class="navbar-brand" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-        (click)="onClickUnfold()">
+        (click)="onClickUnfold($event)">
         <div class="perfil">
-             <p>{{ profileInfo.name }}</p>
+            <p>{{ profileInfo.name }}</p>
             <img [src]="getProfileImage()" alt="Icono" class="rounded-circle">
-       
+
         </div>
-        
+
     </a>
     <ul class="dropdown-menu" [class.show]="openDropdown">
         <li><a class="dropdown-item" [routerLink]="['/area-personal']" *ngIf="usersService.isLogged()">Área Personal</a>
