@@ -1,3 +1,11 @@
+<div>
+    <app-header-landing-page></app-header-landing-page>
+</div>
+<div class="col-md-12">
+    <app-category-navbar [categories]="categories" [selectedCategory]="selectedCategory"
+        (categorySelected)="navigateToCategory($event)">
+    </app-category-navbar>
+</div>
 <div class="container mt-5" *ngIf="article">
     <div class="row">
         <div class="col-md-8 offset-md-2">

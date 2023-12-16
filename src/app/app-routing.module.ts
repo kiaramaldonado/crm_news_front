@@ -23,8 +23,10 @@ const routes: Routes = [
       {
         path: ':category', component: HomeComponent
       },
+
     ]
   },
+
   { path: 'registro', component: FormRegistrationComponent },
   { path: 'login', component: FormLoginComponent },
   {

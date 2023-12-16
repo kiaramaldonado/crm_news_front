@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/core/models/article.interface';
+import { Category } from 'src/app/core/models/category.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -21,6 +22,14 @@ export class ArticleDetailComponent {
   usersService = inject(UsersService);
 
   users: User[] = [];
+
+  publishedArray: Article[] = [];
+  headlineArticle: Article | null = null;
+  standardArticles: Article[] = [];
+  categories: Category[] = [];
+  selectedCategory: Category | null = null;
+
+  router = inject(Router);
 
   async ngOnInit() {
     this.activatedRoute.params.subscribe(async params => {
@@ -48,5 +57,44 @@ export class ArticleDetailComponent {
         console.error('Error fetching data:', error);
       }
     });
+
+    this.publishedArray = await this.articlesService.getAllPublished();
+    this.categories = await this.articlesService.getAllCategories();
+
+    this.headlineArticle = this.publishedArray.find(article => article.headline)!;
+    this.standardArticles = this.publishedArray.filter(article => !article.headline);
+  }
+
+  async filterByCategory(category: Category | null) {
+    this.selectedCategory = category;
+
+    if (category) {
+      if (category.parent_id === null) {
+        const allArticles = await this.articlesService.getByParentCategory(category.id);
+        this.standardArticles = allArticles.filter(article => article.status === 'publicado');
+      } else {
+        this.standardArticles = this.publishedArray.filter(article =>
+          article.category_id === category.id && article.status === 'publicado');
+      }
+    } else {
+      this.standardArticles = this.publishedArray.filter(article =>
+        article.status === 'publicado');
+    }
+
+  }
+
+  async navigateToCategory(category: Category | null) {
+    this.selectedCategory = category;
+
+    if (category) {
+      // Construir la ruta según la categoría seleccionada
+      const categoryRoute = `/guirre/${category.id}`;  // Utilizar la propiedad id
+
+      // Navegar directamente a la categoría
+      this.router.navigateByUrl(categoryRoute);
+    } else {
+      // Navegar a la página principal si no hay categoría seleccionada
+      this.router.navigateByUrl('/guirre');
+    }
   }
 }
