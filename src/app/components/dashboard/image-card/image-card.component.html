@@ -4,8 +4,10 @@
             <figure>
                 <img [src]="oneImage.url" alt="">
             </figure>
-            <p class="card-text">{{oneImage.source}}</p>
-            <p class="card-text">{{oneImage.url}}</p>
+            <p class="card-text">{{ oneImage.source }}</p>
+            <p class="card-text" style="display: none;">{{ oneImage.url }}</p>
+            <button #copyButton class="btn btn-warning" (click)="onClickCopy()" title="Copiar url de la imagen"><i
+                    class="bi bi-copy"></i></button>
         </div>
     </div>
 </div>

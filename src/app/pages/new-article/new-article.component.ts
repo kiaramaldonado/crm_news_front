@@ -1,7 +1,9 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Category } from 'src/app/core/models/category.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-article',
@@ -24,13 +26,13 @@ export class NewArticleComponent {
 
   constructor() {
     this.newArticle = new FormGroup({
-      title: new FormControl(),
-      excerpt: new FormControl(),
-      body: new FormControl(),
-      category_id: new FormControl(''),
-      url: new FormControl(),
-      source: new FormControl(),
-      caption: new FormControl()
+      title: new FormControl(null, [Validators.required]),
+      excerpt: new FormControl(null, [Validators.required]),
+      body: new FormControl(null, [Validators.required]),
+      category_id: new FormControl('', [Validators.required]),
+      url: new FormControl(null, [Validators.required]),
+      source: new FormControl(null, [Validators.required]),
+      caption: new FormControl(null, [Validators.required]),
     }, [])
   }
 
@@ -45,8 +47,20 @@ export class NewArticleComponent {
       const response = await this.articlesService.createArticle(this.newArticle.value);
       console.log(response);
       this.newArticle.reset();
+      await Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Artículo creado",
+        showConfirmButton: false,
+        timer: 1500
+      })
     } catch (e: any) {
       console.log(e);
+      await Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "El artículo no ha sido creado"
+      })
     }
   }
 
