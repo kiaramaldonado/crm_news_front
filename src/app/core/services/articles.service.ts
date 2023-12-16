@@ -4,6 +4,8 @@ import { firstValueFrom } from 'rxjs';
 import { Article } from '../models/article.interface';
 import { Assignment } from '../models/assignment.interface';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -54,6 +56,12 @@ export class ArticlesService {
     )
   }
 
+  getByParentCategory(idParentCategory: number | string): Promise<Article[]> {
+    return firstValueFrom(
+      this.httpClient.get<Article[]>(`${this.baseUrl}/parentCategory/${idParentCategory}`)
+    )
+  }
+
   updateById(articleId: string | number, body: Article) {
     return firstValueFrom(
       this.httpClient.put<Article>(`${this.baseUrl}/${articleId}`, body)
@@ -66,6 +74,13 @@ export class ArticlesService {
       this.httpClient.post<Assignment>(`${this.baseUrl}/asign/${articleId}`, body)
     )
   }
+  getBySlug(slug: string): Promise<Article> {
+    return firstValueFrom(
+      this.httpClient.get<Article>(`${this.baseUrl}/article/${slug}`)
+    )
+  }
+
+
 
 }
 

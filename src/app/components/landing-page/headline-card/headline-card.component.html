@@ -1,5 +1,5 @@
 <div class="headline-card-container">
-    <a [routerLink]="['/', transformTitle(article.title)]" class="headline-card-link">
+    <a [routerLink]="['/articulo', article.slug]" class="headline-card-link">
         <div class="headline-card mb-3">
             <img [src]="article.url" class="headline-card-img-left">
             <div class="headline-card-body">

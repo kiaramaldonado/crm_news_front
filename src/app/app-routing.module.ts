@@ -42,7 +42,7 @@ const routes: Routes = [
 
     ]
   },
-  { path: ':articleTitle', component: ArticleDetailComponent },
+  { path: 'articulo/:slug', component: ArticleDetailComponent },
 
   { path: '**', redirectTo: '/guirre' }
 ];
