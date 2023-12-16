@@ -17,12 +17,20 @@ export class DashboardComponent {
   imagesService = inject(ImagesService);
 
   userLogged!: User;
+  displayName: string | undefined;
 
 
   async ngOnInit() {
     try {
       this.userLogged = await this.usersService.getById();
-      console.log(this.userLogged);
+      if (this.userLogged.name) {
+      const nameParts = this.userLogged.name.split(' ');
+      this.displayName = nameParts[0]; 
+    } else {
+      this.displayName = undefined;
+    }
+
+    console.log(this.displayName);
     } catch (error) {
       console.log(error);
     }
