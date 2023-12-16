@@ -17,7 +17,7 @@ export class ArticlesByUserComponent {
   activatedRoute = inject(ActivatedRoute);
 
   articlesArr: any[] = [];
-  userInfo!: User;
+  @Input() user!: User;
   arrFiltrado: any;
   status: string = '';
  
@@ -26,7 +26,7 @@ export class ArticlesByUserComponent {
 
   async ngOnInit() {
     try {
-      this.userInfo = await this.usersService.getById();
+      this.user = await this.usersService.getById();
       this.articlesArr = await this.articlesService.getByUser();
       this.articlesArr = await this.filtrarStatus();
       console.log(this.articlesArr);
@@ -36,7 +36,7 @@ export class ArticlesByUserComponent {
   }
 
   async filtrarStatus() {
-    if (this.userInfo && this.userInfo.role === 'editor') {
+    if (this.user && this.user.role === 'editor') {
       return this.articlesArr.filter(article => article.status === "revision");
     } else {
       return this.articlesArr.filter(article => article.status === "borrador");

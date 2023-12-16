@@ -1,11 +1,10 @@
 
-
-  <div class="row">
-    <app-dashboard-navbar class="col-3">
+<div class="row">
+    <app-dashboard-navbar *ngIf="userLogged" [userLogged]="userLogged" class="col-3">
       Sidebar navegacion
     </app-dashboard-navbar>
     <div class="col-9">
       <router-outlet></router-outlet>
     </div>
     
-  </div>
+</div>

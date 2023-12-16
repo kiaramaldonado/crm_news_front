@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/core/models/user.interface';
 
 @Component({
   selector: 'app-dashboard-navbar',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class DashboardNavbarComponent {
 
-router = inject(Router);
+// router = inject(Router);
+@Input() userLogged!: User;
 
   
 // status: string = ''; // Agrega una propiedad para almacenar el estado actual

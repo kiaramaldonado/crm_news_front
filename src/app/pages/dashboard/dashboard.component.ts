@@ -18,4 +18,13 @@ export class DashboardComponent {
 
   userLogged!: User;
 
+
+  async ngOnInit() {
+    try {
+      this.userLogged = await this.usersService.getById();
+      console.log(this.userLogged);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }

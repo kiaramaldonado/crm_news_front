@@ -28,10 +28,20 @@
           Imagenes
         </button>
       </li>
+      <li class="mb-1" [routerLink]="['equipo']">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+          Equipo
+        </button>
+      </li>
       <li class="border-top my-3"></li>
-      <li class="mb-1" [routerLink]="['nuevo']">
+      <li *ngIf="userLogged && userLogged.role !== 'editor'" class="mb-1" [routerLink]="['nuevo']">
         <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Nuevo Articulo
+        </button>
+
+        <li *ngIf="userLogged && userLogged.role === 'editor'" class="mb-1" [routerLink]="['articulos/', 'publicados']">
+        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          Publicados
         </button>
         
       </li>
