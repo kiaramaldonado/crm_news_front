@@ -9,6 +9,9 @@
 <div class="container mt-5" *ngIf="article">
     <div class="row">
         <div class="col-md-8 offset-md-2">
+            <p class="mb-2" *ngIf="article.category_id && categories.length">
+                <strong>{{ getCategoryName(article.category_id) }}</strong>
+            </p>
             <h2 class="display-4">{{ article.title }}</h2>
             <p class="mb-3">{{ article.excerpt }}</p>
             <div class="text-center">

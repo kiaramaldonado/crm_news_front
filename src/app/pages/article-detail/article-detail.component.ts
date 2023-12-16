@@ -65,33 +65,58 @@ export class ArticleDetailComponent {
     this.standardArticles = this.publishedArray.filter(article => !article.headline);
   }
 
-  async filterByCategory(category: Category | null) {
-    this.selectedCategory = category;
 
-    if (category) {
-      if (category.parent_id === null) {
-        const allArticles = await this.articlesService.getByParentCategory(category.id);
-        this.standardArticles = allArticles.filter(article => article.status === 'publicado');
-      } else {
-        this.standardArticles = this.publishedArray.filter(article =>
-          article.category_id === category.id && article.status === 'publicado');
-      }
-    } else {
-      this.standardArticles = this.publishedArray.filter(article =>
-        article.status === 'publicado');
+
+  getCategoryName(categoryId: number | undefined): string {
+    if (!categoryId) {
+      return '';
     }
 
+    const category = this.categories.find(c => c.id === categoryId);
+    if (!category) {
+      return '';
+    }
+
+    const categoryName = category.name;
+
+    if (category.parent_id !== null) {
+      const parentCategory = this.categories.find(c => c.id === category.parent_id);
+      if (parentCategory) {
+        return `${parentCategory.name} / ${categoryName}`;
+      }
+    }
+
+    return categoryName;
   }
+
+  // async filterByCategory(category: Category | null) {
+  //   this.selectedCategory = category;
+
+  //   if (category) {
+  //     if (category.parent_id === null) {
+  //       const allArticles = await this.articlesService.getByParentCategory(category.id);
+  //       this.standardArticles = allArticles.filter(article => article.status === 'publicado');
+  //     } else {
+  //       this.standardArticles = this.publishedArray.filter(article =>
+  //         article.category_id === category.id && article.status === 'publicado');
+  //     }
+  //   } else {
+  //     this.standardArticles = this.publishedArray.filter(article =>
+  //       article.status === 'publicado');
+  //   }
+
+  // }
 
   async navigateToCategory(category: Category | null) {
     this.selectedCategory = category;
 
     if (category) {
       // Construir la ruta según la categoría seleccionada
-      const categoryRoute = `/guirre/${category.id}`;  // Utilizar la propiedad id
+      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
+      this.router.navigate(['/guirre', categoryNameWithDashes]);  // Utilizar la propiedad id
 
       // Navegar directamente a la categoría
-      this.router.navigateByUrl(categoryRoute);
+      this.router.navigateByUrl(categoryNameWithDashes);
     } else {
       // Navegar a la página principal si no hay categoría seleccionada
       this.router.navigateByUrl('/guirre');

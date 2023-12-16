@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/user.interface';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -45,8 +45,16 @@ export class ProfileComponent {
 
 
 
-  onClickUnfold() {
+  onClickUnfold(event: Event) {
+    event.stopPropagation();
     this.openDropdown = !this.openDropdown;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    if (this.openDropdown) {
+      this.openDropdown = false;
+    }
   }
 
 
