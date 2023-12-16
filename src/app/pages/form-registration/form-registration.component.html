@@ -1,55 +1,55 @@
 <div class="containerForm">
 
-   
+
     <div class="registro">
         <figure [routerLink]="['/guirre']">
-            <img class="mb-4" src="../../../assets/images/logo_portada.png" alt="" >
+            <img class="mb-4" src="../../../assets/images/logo_portada.png" alt="">
         </figure>
         <h2>Formulario de registro</h2>
-    <div class="formulario">
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Nombre</label>
-                <input type="text" class="form-control" formControlName="name">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Nombre de usuario</label>
-                <input type="text" class="form-control" formControlName="username">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Email</label>
-                <input type="email" class="form-control" formControlName="email">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Password</label>
-                <input type="password" class="form-control" formControlName="password">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Departamento</label>
-                <select class="form-select" formControlName="role">
-                    <option value="redactor">Redacción</option>
-                    <option value="editor">Edición</option>
-                </select>
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" formControlName="date_of_birth">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Phone</label>
-                <input type="text" class="form-control" formControlName="phone">
-            </div>
-            <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                <label class="form-label">Imagen de perfil</label>
-                <input type="text" class="form-control" formControlName="image">
-            </div>
+        <div class="formulario">
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Nombre</label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Nombre de usuario</label>
+                    <input type="text" class="form-control" formControlName="username">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" formControlName="email">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Contraseña</label>
+                    <input type="password" class="form-control" formControlName="password">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Departamento</label>
+                    <select class="form-select" formControlName="role">
+                        <option value="redactor">Redacción</option>
+                        <option value="editor">Edición</option>
+                    </select>
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Fecha de nacimiento</label>
+                    <input type="date" class="form-control" formControlName="date_of_birth">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" formControlName="phone">
+                </div>
+                <div class="mb-4 col-xs-12 col-md-4 offset-4">
+                    <label class="form-label">Imagen de perfil</label>
+                    <input type="text" class="form-control" formControlName="image">
+                </div>
 
-        <button type="submit" value="Enviar" class="btn btn-warning ">Enviar</button>
+                <button type="submit" value="Enviar" class="btn btn-warning ">Enviar</button>
 
 
-    </form>
+            </form>
+        </div>
+
     </div>
-   
-    </div>
-    
+
 </div>
