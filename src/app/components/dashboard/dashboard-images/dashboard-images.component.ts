@@ -9,7 +9,7 @@ import { ImagesService } from 'src/app/core/services/images.service';
 })
 export class DashboardImagesComponent {
 
-   ImagesService = inject(ImagesService);
+  ImagesService = inject(ImagesService);
 
   ImagesArr: Image[] = [];
 
