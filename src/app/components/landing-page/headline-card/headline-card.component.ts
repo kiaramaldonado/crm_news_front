@@ -20,14 +20,23 @@ export class HeadlineCardComponent {
   userInfo!: User;
   articleInfo!: Article;
   usersService = inject(UsersService);
+  articlesService = inject(ArticlesService)
 
 
   async ngOnInit() {
     this.userInfo = await this.usersService.getById();
   }
 
-  onClick($event: any) {
+  async onClick() {
+    try {
+      const slug = this.article.slug;
+      const newHeadlineValue = false;
+      const response = await this.articlesService.updateHeadline(slug, newHeadlineValue);
+      console.log('Actualización exitosa:', response);
 
+    } catch (error) {
+      console.error('Error al actualizar el titular:', error);
+    }
   }
 
 }
