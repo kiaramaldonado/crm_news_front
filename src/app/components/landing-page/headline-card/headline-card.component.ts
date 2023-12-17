@@ -33,7 +33,9 @@ export class HeadlineCardComponent {
       const newHeadlineValue = false;
       const response = await this.articlesService.updateHeadline(slug, newHeadlineValue);
       console.log('Actualización exitosa:', response);
-
+      setTimeout(() => {
+        window.location.reload();
+      }, 0);
     } catch (error) {
       console.error('Error al actualizar el titular:', error);
     }
