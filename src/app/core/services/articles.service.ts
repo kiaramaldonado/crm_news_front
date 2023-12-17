@@ -38,7 +38,7 @@ export class ArticlesService {
     )
   }
 
-  getByStatus(status:string) {
+  getByStatus(status: string) {
     return firstValueFrom(
       this.httpClient.get<any[]>(`${this.baseUrl}/status/${status}`)
     )
@@ -68,12 +68,18 @@ export class ArticlesService {
     )
   }
 
+  updateHeadline(slug: string, headline: boolean) {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/article/${slug}`, headline)
+    )
+  }
 
   assignArticle(articleId: string | number, body: Assignment) {
     return firstValueFrom(
       this.httpClient.post<Assignment>(`${this.baseUrl}/asign/${articleId}`, body)
     )
   }
+
   getBySlug(slug: string): Promise<Article> {
     return firstValueFrom(
       this.httpClient.get<Article>(`${this.baseUrl}/article/${slug}`)
@@ -83,23 +89,3 @@ export class ArticlesService {
 
 
 }
-
-
-//router.post('/asign/:articleId', checkToken, ArticlesController.asignArticle);
-
-// const asignArticle = async (req, res) => {
-//   try {
-//       const {user_id, comments, actual_status } = req.body;
-//       const {articleId}  = req.params;
-//       console.log(articleId);
-//       console.log(req.body)
-//       const [nuevoRegistro] = await ArticleModel.insertUsersHasArticles(user_id, articleId, comments, actual_status);
-//       const [article] = await ArticleModel.selectById(articleId);
-//       const [statusArticle] = await ArticleModel.updateStatusArticle(articleId, {status:actual_status})
-//       console.log(nuevoRegistro[0]);
-//       console.log(statusArticle);
-//       res.json(nuevoRegistro[0]);
-//   } catch (error) {
-//       res.json({ error: error.message });
-//   }
-// }
