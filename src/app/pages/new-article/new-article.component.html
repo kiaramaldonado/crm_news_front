@@ -56,6 +56,7 @@
                 </select>
             </div>
         </div>
-        <button type="submit" value="Enviar" class="btn btn-success">Guardar como borrador</button>
+        <button type="submit" value="Enviar" class="btn btn-success" [disabled]="!newArticle.valid">Guardar como
+            borrador</button>
     </form>
 </div>

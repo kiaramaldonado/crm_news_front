@@ -1,7 +1,9 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/core/models/user.interface';
 import { UsersService } from 'src/app/core/services/users.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -37,7 +39,15 @@ export class ProfileComponent {
   }
 
   async onClickLogout() {
-    if (await confirm('¿Quieres salir de la aplicación?')) {
+    const result = await Swal.fire({
+      title: '¿Quieres cerrar sesión?',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Sí',
+      cancelButtonText: 'No',
+    });
+
+    if (result.isConfirmed) {
       localStorage.removeItem('token');
       this.router.navigate(['/login']);
     }
@@ -45,8 +55,16 @@ export class ProfileComponent {
 
 
 
-  onClickUnfold() {
+  onClickUnfold(event: Event) {
+    event.stopPropagation();
     this.openDropdown = !this.openDropdown;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    if (this.openDropdown) {
+      this.openDropdown = false;
+    }
   }
 
 

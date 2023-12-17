@@ -1,41 +1,54 @@
-
 <div class="flex-shrink-0 p-3 bg-light" style="width: 280px;">
-    <a  class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none">
-      <figure [routerLink]="['/guirre']">
-        <img src="../../../assets/images/logo_portada.png" alt="">
+  <a class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none">
+    <figure [routerLink]="['/guirre']">
+      <img src="../../../assets/images/logo_portada.png" alt="">
     </figure>
-    </a>
-     <ul class="list-unstyled ">
-        <li class="mb-1" [routerLink]="['/area-personal']">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0" >
-          Home
-        </button>
-      </li>
-      <li class="mb-1" [routerLink]="['articulos']">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Articulos
-        </button>
-        <div class="collapse show" id="home-collapse">
+  </a>
+  <ul class="list-unstyled ">
+    <li class="mb-1" [routerLink]="['/area-personal']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0">
+        Home
+      </button>
+    </li>
+    <li class="mb-1" [routerLink]="['articulos']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+        Artículos
+      </button>
+      <!-- <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">Borradores</a></li>
-            <li><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">En revisión</a></li>
-            <li><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">Publicados</a></li>
+            <li [routerLink]="['/area-personal/articulos', 'borrador']"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">Borradores</a></li>
+            <li [routerLink]="['/area-personal/articulos', 'revision']" ><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">En revisión</a></li>
+            <li [routerLink]="['/area-personal/articulos', 'publicado']"><a class="link-body-emphasis d-inline-flex text-decoration-none rounded">Publicados</a></li>
           </ul>
-        </div>
-      </li>
-      <li class="mb-1" [routerLink]="['imagenes']">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Imagenes
-        </button>
-      </li>
-      <li class="border-top my-3"></li>
-      <li class="mb-1" [routerLink]="['nuevo']">
-        <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-          Nuevo Articulo
-        </button>
-        
-      </li>
-    </ul>
-  </div>
+        </div> -->
+    </li>
+    <li class="mb-1" [routerLink]="['imagenes']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+        Imágenes
+      </button>
+    </li>
+    <li class="mb-1" [routerLink]="['equipo']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+        Equipo
+      </button>
+    </li>
+    <li class="border-top my-3"></li>
+    <li class="mb-1" [routerLink]="['guirre/']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        Vista Periódico
+      </button>
+    <li *ngIf="userLogged && userLogged.role !== 'editor'" class="mb-1" [routerLink]="['nuevo']">
+      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        Nuevo artículo
+      </button>
 
 
+
+    </li>
+  </ul>
+</div>

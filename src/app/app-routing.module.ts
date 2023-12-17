@@ -12,6 +12,7 @@ import { ArticlesByUserComponent } from './components/dashboard/articles-by-user
 import { DashboardImagesComponent } from './components/dashboard/dashboard-images/dashboard-images.component';
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
+import { DashboardEquipoComponent } from './components/dashboard/dashboard-equipo/dashboard-equipo.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
@@ -21,10 +22,13 @@ const routes: Routes = [
     children: [
 
       {
-        path: ':category', component: HomeComponent
+        path: ':category', component: HomeComponent, children:
+          [{ path: 'articulo/:slug', component: ArticleDetailComponent },]
       },
+
     ]
   },
+
   { path: 'registro', component: FormRegistrationComponent },
   { path: 'login', component: FormLoginComponent },
   {
@@ -34,14 +38,16 @@ const routes: Routes = [
     children: [
       { path: 'perfil', component: FormEditComponent },
       { path: 'imagenes', component: DashboardImagesComponent },
+      { path: 'equipo', component: DashboardEquipoComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
+      { path: 'articulos/publicados', component: ArticlesByUserComponent },
       { path: 'nuevo', component: NewArticleComponent },
       { path: 'edicion/:articleId', component: EditArticleComponent },
       { path: 'asignacion/:articleId', component: FormAssignmentComponent }
 
     ]
   },
-  { path: 'articulo/:slug', component: ArticleDetailComponent },
+
 
   { path: '**', redirectTo: '/guirre' }
 ];

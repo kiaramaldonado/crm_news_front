@@ -1,11 +1,11 @@
-
-
-  <div class="row">
-    <app-dashboard-navbar class="col-3">
-      Sidebar navegacion
-    </app-dashboard-navbar>
-    <div class="col-9">
-      <router-outlet></router-outlet>
-    </div>
-    
+<div class="row">
+  <app-dashboard-navbar *ngIf="userLogged" [userLogged]="userLogged" class="col-3">
+    Sidebar navegacion
+  </app-dashboard-navbar>
+  <div class="col-9">
+    <h5>Hola, {{displayName}}</h5>
+    <p><small>¡Que tengas un buen día!</small> </p>
+    <router-outlet></router-outlet>
   </div>
+
+</div>

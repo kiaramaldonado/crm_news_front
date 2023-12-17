@@ -30,6 +30,8 @@ import { ArticleDetailComponent } from './pages/article-detail/article-detail.co
 import { ImageCardComponent } from './components/dashboard/image-card/image-card.component';
 import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 import { HomeAppComponent } from './pages/home-app/home-app.component';
+import { DashboardEquipoComponent } from './components/dashboard/dashboard-equipo/dashboard-equipo.component';
+import { TeammateCardComponent } from './components/dashboard/teammate-card/teammate-card.component';
 
 
 
@@ -57,7 +59,9 @@ import { HomeAppComponent } from './pages/home-app/home-app.component';
     ArticleDetailComponent,
     ImageCardComponent,
     FormAssignmentComponent,
-    HomeAppComponent
+    HomeAppComponent,
+    DashboardEquipoComponent,
+    TeammateCardComponent
 
   ],
   imports: [

@@ -34,7 +34,7 @@ export class CategoryNavbarComponent {
     } else {
       event.stopPropagation(); // Stop the event propagation
       const route = category.parent_id === null ? '/guirre' : '/guirre';
-      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-');
+      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
       this.router.navigate([route, categoryNameWithDashes]);
 
       this.emitCategorySelection(category);

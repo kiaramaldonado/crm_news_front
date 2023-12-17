@@ -18,6 +18,8 @@ export class FormAssignmentComponent {
   userInfo!: User;
   allEditors: User[] = [];
   allWriters: User[] = [];
+  showAssignDiv: boolean = false;
+  showPublishDiv: boolean = false;
 
   articlesService = inject(ArticlesService);
   usersService = inject(UsersService);
@@ -31,6 +33,7 @@ export class FormAssignmentComponent {
       articles_id: new FormControl(),
       comments: new FormControl(),
       actual_status: new FormControl('revision'),
+      headline: new FormControl(0)
     }, [])
   }
 
@@ -45,6 +48,20 @@ export class FormAssignmentComponent {
       const { id } = response;
       this.newAssignment.patchValue({ articles_id: id, user_id: this.userInfo.id });
     })
+  }
+
+  onClick($event: any) {
+    if ($event.target.value === "0: 'borrador'") {
+      this.showAssignDiv = true;
+      this.showPublishDiv = false;
+    } else if ($event.target.value === "1: 'publicado'") {
+      this.showPublishDiv = true;
+      this.showAssignDiv = false;
+    }
+  }
+
+  onCheck($event: any) {
+    this.newAssignment.value.headline = 1;
   }
 
   async onSubmit() {
