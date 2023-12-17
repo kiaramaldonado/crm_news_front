@@ -57,6 +57,12 @@ export class UsersService {
     );
   }
 
+  checkUsernameExists(username: string): Promise<boolean> {
+    return this.getAll().then(users => users.some(user => user.username === username));
+  }
 
+  checkEmailExists(email: string): Promise<boolean> {
+    return this.getAll().then(users => users.some(user => user.email === email));
+  }
 
 }

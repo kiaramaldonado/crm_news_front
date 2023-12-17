@@ -4,9 +4,9 @@ body {
 }
 
 img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .form-signin {
@@ -30,10 +30,10 @@ img {
   border-top-right-radius: 0;
 }
 
-.registro{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    
+.registro {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
 }
 
