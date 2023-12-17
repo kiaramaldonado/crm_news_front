@@ -10,4 +10,12 @@ export class TeammateCardComponent {
 
   @Input() oneUser!:User;
 
+  getProfileImage(): string {
+
+    if (this.oneUser && this.oneUser.image) {
+      return this.oneUser.image;
+    }
+    return 'assets/images/logo_cuadrado.png';
+  }
+
 }

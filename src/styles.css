@@ -28,7 +28,6 @@ img {
 
     --color-primary: #F5DF7E;
     --color-hover: #f4d54b;
-<<<<<<< HEAD
     --gap: 20px;
 }
 
@@ -48,8 +47,7 @@ img {
   --bs-btn-disabled-bg: var(--color-primary);
   --bs-btn-disabled-border-color: var(--color-primary);
 }
-=======
-}
+
 
 .error-message {
     font-size: 80%;
@@ -60,4 +58,3 @@ img {
 .error-border {
     border: 1px solid #dc3545;
 }
->>>>>>> d7395729b0e51982b9d926da43338d04e3f937db

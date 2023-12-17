@@ -35,7 +35,7 @@ export class ProfileComponent {
     if (this.profileInfo && this.profileInfo.image) {
       return this.profileInfo.image;
     }
-    return 'assets/images/logo_circular.png';
+    return 'assets/images/logo_cuadrado.png';
   }
 
   async onClickLogout() {
