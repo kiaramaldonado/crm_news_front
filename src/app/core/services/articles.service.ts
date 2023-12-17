@@ -70,7 +70,7 @@ export class ArticlesService {
 
   updateHeadline(slug: string, headline: boolean) {
     return firstValueFrom(
-      this.httpClient.put<any>(`${this.baseUrl}/article/${slug}`, headline)
+      this.httpClient.put<any>(`${this.baseUrl}/article/${slug}`, { headline })
     )
   }
 

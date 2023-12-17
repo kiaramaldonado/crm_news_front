@@ -1,14 +1,17 @@
 <div class="headline-card-container">
-    <a [routerLink]="['/articulo', article.slug]" class="headline-card-link">
-        <div class="headline-card mb-3">
-            <img [src]="article.url" class="headline-card-img-left">
-            <div class="headline-card-body">
-                <h3 class="headline-card-title">{{ article.title }}</h3>
-                <p class="headline-card-text">{{ article.excerpt }}</p>
+    <div>
+        <a [routerLink]="['/articulo', article.slug]" class="headline-card-link">
+            <div class="headline-card mb-3">
+                <img [src]="article.url" class="headline-card-img-left">
+                <div class="headline-card-body">
+                    <h3 class="headline-card-title">{{ article.title }}</h3>
+                    <p class="headline-card-text">{{ article.excerpt }}</p>
+                </div>
             </div>
-            <button class="btn btn-warning" *ngIf="userInfo && userInfo.role === 'editor'"
-                (click)="onClick($event)">Quitar de la
-                cabecera</button>
-        </div>
-    </a>
+        </a>
+        <button class="btn btn-warning" *ngIf="userInfo && userInfo.role === 'editor'" (click)="onClick()">Quitar
+            este
+            artículo de la
+            cabecera</button>
+    </div>
 </div>
