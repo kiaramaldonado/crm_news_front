@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors }
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/core/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-form-registration',
   templateUrl: './form-registration.component.html',
@@ -77,11 +79,32 @@ export class FormRegistrationComponent {
     await this.checkEmailExists();
 
     if (this.registerForm.valid && !this.usernameExists && !this.emailExists) {
-      const response = await this.usersService.registration(this.registerForm.value);
-      console.log(response);
+      try {
 
-      this.registerForm.reset();
-      this.router.navigate(['/login']);
+        const response = await this.usersService.registration(this.registerForm.value);
+        console.log(response);
+
+
+        this.registerForm.reset();
+        this.router.navigate(['/login']);
+
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Usuario registrado correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
+      } catch (error) {
+        console.log(error);
+
+
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al registrar usuario',
+          text: 'Hubo un problema durante el registro. Por favor, inténtalo de nuevo.',
+        });
+      }
     }
   }
 

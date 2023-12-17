@@ -6,6 +6,8 @@ import { User } from 'src/app/core/models/user.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { UsersService } from 'src/app/core/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-form-assignment',
   templateUrl: './form-assignment.component.html',
@@ -68,8 +70,24 @@ export class FormAssignmentComponent {
     try {
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
       console.log(response);
+
+      await Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Operación realizada con éxito",
+        showConfirmButton: false,
+        timer: 1500
+      });
+
+      this.router.navigate(['/area-personal/articulos']);
     } catch (e: any) {
       console.log(e);
+
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ha ocurrido un error durante la operación'
+      });
     }
   }
 

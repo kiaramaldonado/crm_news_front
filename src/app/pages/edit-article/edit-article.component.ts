@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/core/models/category.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-article',
   templateUrl: './edit-article.component.html',
@@ -58,11 +60,25 @@ export class EditArticleComponent {
     try {
       const response = await this.articlesService.updateById(this.articleId, this.formArticleEdit.value);
       console.log(response);
+
+      await Swal.fire({
+        icon: 'success',
+        title: 'Artículo editado',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       this.router.navigate(['area-personal/articulos']);
     } catch (error) {
       console.log(error);
+
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'La edición del artículo ha fallado'
+      });
+
+
     }
-
   }
-
 }

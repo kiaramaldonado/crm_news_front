@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/core/models/category.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 
@@ -17,6 +18,7 @@ export class NewArticleComponent {
   allCategories: Category[] = [];
   parentCategories: Category[] = [];
   subcategories: Category[] = [];
+  router = inject(Router);
 
 
   async ngOnInit() {
@@ -46,6 +48,7 @@ export class NewArticleComponent {
     try {
       const response = await this.articlesService.createArticle(this.newArticle.value);
       console.log(response);
+      this.router.navigate(['/area-personal']);
       this.newArticle.reset();
       await Swal.fire({
         position: "top-end",
