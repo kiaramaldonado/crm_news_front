@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/core/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-form-login',
   templateUrl: './form-login.component.html',
@@ -27,11 +29,26 @@ export class FormLoginComponent {
     this.submitted = true;
     const response = await this.usersService.login(this.loginForm.value);
     console.log(response);
+
     if (!response.error) {
       localStorage.setItem('token', response.token);
+
+      await Swal.fire({
+        icon: 'success',
+        title: 'Sesión iniciada correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       this.router.navigate(['/area-personal']);
     } else {
       this.error = 'Credenciales inválidas. Por favor, verifica tu correo electrónico y contraseña.';
+      await Swal.fire({
+        icon: 'error',
+        title: 'Error de inicio de sesión',
+        text: this.error,
+        confirmButtonText: 'OK'
+      });
     }
   }
 }
