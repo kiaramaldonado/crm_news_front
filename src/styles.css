@@ -29,3 +29,13 @@ img {
     --color-primary: #F5DF7E;
     --color-hover: #f4d54b;
 }
+
+.error-message {
+    font-size: 80%;
+    color: #dc3545;
+    margin-top: 0.25rem;
+}
+
+.error-border {
+    border: 1px solid #dc3545;
+}
