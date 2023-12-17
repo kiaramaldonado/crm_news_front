@@ -1,12 +1,17 @@
-<div class="card-container">
-    <div class="card mb-3">
-        <div class="card-body">
-            <figure>
-                <img [src]="oneUser.image" alt="">
-            </figure>
-            <p class="card-text">{{oneUser.name}}</p>
-            <p class="card-text">{{oneUser.role}}</p>
-        </div>
+
+<div class="card">
+    <div class="bg-light">
+        <figure>
+            <img [src]="oneUser.image" alt="">
+        </figure>
     </div>
+    <div class="text">
+        <h4>{{oneUser.name}}</h4>
+        <p class="card-text">{{oneUser.role}}</p>
+    </div>
+    <div class="button">
+        <button class="btn btn-sm btn-warning">Enviar email</button>
+    </div>
+    
 </div>
 

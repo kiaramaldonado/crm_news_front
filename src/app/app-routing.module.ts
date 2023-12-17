@@ -22,8 +22,7 @@ const routes: Routes = [
     children: [
 
       {
-        path: ':category', component: HomeComponent, children:
-          [{ path: 'articulo/:slug', component: ArticleDetailComponent },]
+        path: ':category', component: HomeComponent
       },
 
     ]
@@ -47,7 +46,7 @@ const routes: Routes = [
 
     ]
   },
-
+{ path: 'articulo/:slug', component: ArticleDetailComponent },
 
   { path: '**', redirectTo: '/guirre' }
 ];

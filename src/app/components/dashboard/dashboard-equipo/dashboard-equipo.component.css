@@ -1,0 +1,7 @@
+.card-team{
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--gap)*2);
+    justify-content: center;
+    margin: 0 auto;
+}

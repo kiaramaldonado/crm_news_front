@@ -1,0 +1,31 @@
+.card{
+    width: 360px;
+    & figure{
+        display: flex;
+        justify-content: center;
+        margin: var(--gap) auto; 
+        & img{
+            width: 25%;
+            border-radius: 50%;
+        }
+    }
+    .text{
+        margin: var(--gap) 0;
+        text-align: center;
+        & h4{
+        font-size: 16px;
+        font-weight: bold;
+        }
+        & p{
+        font-size: 14px;
+        color: rgb(104, 103, 103);
+        }
+    }
+    .button{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-bottom: var(--gap);
+
+    }
+}
