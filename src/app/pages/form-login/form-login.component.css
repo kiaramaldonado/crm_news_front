@@ -4,9 +4,9 @@ body {
 }
 
 img {
-    width: 100%;
-    height: auto;
-    display: block;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .form-signin {
@@ -30,11 +30,11 @@ img {
   border-top-right-radius: 0;
 }
 
-.registro{
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    
+.registro {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
 }
 
 .btn-warning {
@@ -43,8 +43,8 @@ img {
   --bs-btn-border-color: var(--color-primary);
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: var(--color-hover);
-  --bs-btn-hover-border-color:  var(--color-hover);
-  --bs-btn-focus-shadow-rgb: 217,164,6;
+  --bs-btn-hover-border-color: var(--color-hover);
+  --bs-btn-focus-shadow-rgb: 217, 164, 6;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #ffcd39;
   --bs-btn-active-border-color: #ffc720;

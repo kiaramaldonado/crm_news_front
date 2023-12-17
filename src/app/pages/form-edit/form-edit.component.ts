@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as dayjs from 'dayjs';
 import { UsersService } from 'src/app/core/services/users.service';
@@ -12,7 +12,7 @@ import { UsersService } from 'src/app/core/services/users.service';
 export class FormEditComponent {
 
   editForm: FormGroup;
-  userId: string = '';
+  submitted: boolean = false;
 
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
@@ -20,17 +20,16 @@ export class FormEditComponent {
 
   constructor() {
     this.editForm = new FormGroup({
-      name: new FormControl(),
-      password: new FormControl(),
-      role: new FormControl(),
-      date_of_birth: new FormControl(),
-      phone: new FormControl(),
+      name: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      role: new FormControl('', [Validators.required]),
+      date_of_birth: new FormControl('', [Validators.required]),
+      phone: new FormControl('', [Validators.required]),
       image: new FormControl(),
-    })
+    }, [])
   }
 
   async ngOnInit() {
-
     const response = await this.usersService.getById();
 
     let { name, password, role, date_of_birth, phone, image } = response;
@@ -40,10 +39,11 @@ export class FormEditComponent {
 
 
   async onSubmit() {
-    const response = await this.usersService.updateById(this.editForm.value);
-    this.router.navigate(['/area-personal']);
-
-
+    this.submitted = true;
+    if (this.editForm.valid) {
+      let response = await this.usersService.updateById(this.editForm.value);
+      this.router.navigate(['/area-personal']);
+    }
   }
 }
 
