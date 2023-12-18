@@ -9,11 +9,6 @@
         <div class="editor" *ngIf="userInfo && userInfo.role === 'editor'">
             <div class="col-md-12">
                 <label class="form-label">Selecciona una opción</label>
-                <!-- <select class="form-select" formControlName="actual_status" (change)="onChange($event)">
-                    <option value="" selected>Selecciona una opción</option>
-                    <option value="borrador">Reasignar para revisión</option>
-                    <option value="publicado">Publicar</option>
-                </select> -->
 
                 <select class="form-select options" multiple aria-label="multiple select example"
                     (click)="onClick($event)" formControlName="actual_status">
@@ -34,9 +29,10 @@
             <div class="reasignar" *ngIf="showAssignDiv">
                 <h3>Reasignar para revisión</h3>
                 <hr>
-                <label class="form-label">Departamento de redacción</label>
-                <select class="form-select" formControlName="user_id">
-                    <option value="" selected>Selecciona una opción</option>
+                <label class="form-label">Selecciona a alguien del departamento de redacción</label>
+                <select class="form-select options" multiple aria-label="multiple select example"
+                    formControlName="user_id">
+                    <!-- <option value="" selected>Selecciona una opción</option> -->
                     <option *ngFor="let writer of allWriters" [value]="writer.id">{{writer.name}}</option>
                 </select>
                 <div class="form-floating">
@@ -52,9 +48,10 @@
             <h3>Asignar para su revisión</h3>
             <hr>
             <div class="col-md-12">
-                <label class="form-label">Departamento de edición</label>
-                <select class="form-select" formControlName="user_id">
-                    <option value="" selected>Selecciona una opción</option>
+                <label class="form-label">Selecciona a alguien del departamento de edición</label>
+                <select class="form-select options" multiple aria-label="multiple select example"
+                    formControlName="user_id">
+                    <!-- <option value="" selected>Selecciona una opción</option> -->
                     <option *ngFor="let editor of allEditors" [value]="editor.id">{{editor.name}}</option>
                 </select>
             </div>
@@ -66,8 +63,7 @@
         </div>
 
 
-        <button type="submit" value="Enviar" class="btn btn-warning">Aceptar</button>
+        <button type="submit" value="Enviar" class="btn btn-warning"
+            [disabled]="newAssignment.pristine">Aceptar</button>
     </form>
 </div>
-
-<!-- [attr.selected]="true" -->

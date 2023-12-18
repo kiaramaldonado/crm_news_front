@@ -26,6 +26,10 @@
         justify-content: center;
         margin: 0 auto;
         margin-bottom: var(--gap);
+        & a{
+            text-decoration: none;
+            color: black;
+        }
 
     }
 }

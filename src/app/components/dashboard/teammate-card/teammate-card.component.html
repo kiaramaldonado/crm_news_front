@@ -2,7 +2,8 @@
 <div class="card">
     <div class="bg-light">
         <figure>
-            <img [src]="oneUser.image" alt="">
+            <!-- <img [src]="oneUser.image" alt=""> -->
+             <img [src]="getProfileImage()">
         </figure>
     </div>
     <div class="text">
@@ -10,7 +11,7 @@
         <p class="card-text">{{oneUser.role}}</p>
     </div>
     <div class="button">
-        <button class="btn btn-sm btn-warning">Enviar email</button>
+        <button class="btn btn-sm btn-warning"><a href="mailto:{{oneUser.email}}">Enviar email</a></button>
     </div>
     
 </div>

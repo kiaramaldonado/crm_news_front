@@ -7,9 +7,9 @@
                     <h3 class="headline-card-title">{{ article.title }}</h3>
                     <p class="headline-card-text">{{ article.excerpt }}</p>
                 </div>
-                <button class="btn btn-warning align-self-end" *ngIf="userInfo && userInfo.role === 'editor'"
-                    (click)="onClick($event)">Quitar de la cabecera</button>
             </div>
         </div>
     </a>
+    <button class="btn btn-warning align-self-end" *ngIf="userInfo && userInfo.role === 'editor'"
+        (click)="onClick()">Quitar este artículo de la cabecera</button>
 </div>

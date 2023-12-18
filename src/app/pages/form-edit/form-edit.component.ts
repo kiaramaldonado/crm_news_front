@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as dayjs from 'dayjs';
 import { UsersService } from 'src/app/core/services/users.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-form-edit',
   templateUrl: './form-edit.component.html',
@@ -41,8 +43,23 @@ export class FormEditComponent {
   async onSubmit() {
     this.submitted = true;
     if (this.editForm.valid) {
-      let response = await this.usersService.updateById(this.editForm.value);
-      this.router.navigate(['/area-personal']);
+      try {
+        await this.usersService.updateById(this.editForm.value);
+        this.router.navigate(['/area-personal']);
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Perfil editado',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 }

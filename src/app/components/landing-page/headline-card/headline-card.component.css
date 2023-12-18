@@ -1,7 +1,7 @@
 .headline-card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 8px;
     margin-top: 10px;
     justify-content: center;
 }
@@ -46,6 +46,7 @@
 
 .btn {
     width: 100%;
+    margin-bottom: 16px;
 }
 
 @media (max-width: 840px) {
