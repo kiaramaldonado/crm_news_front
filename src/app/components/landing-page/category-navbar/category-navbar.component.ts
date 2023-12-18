@@ -15,10 +15,7 @@ export class CategoryNavbarComponent {
   constructor(private router: Router) { };
 
 
-  ngOnInit() {
-    console.log(this.categories, 'Esta es la buena');
 
-  }
   emitCategorySelection(category: Category | null): void {
     this.selectedCategory = category;
     this.categorySelected.emit(category);
@@ -40,7 +37,7 @@ export class CategoryNavbarComponent {
       event.stopPropagation(); // Stop the event propagation
       const route = category.parent_id === null ? '/guirre' : '/guirre';
       const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
-      this.router.navigate(['/category', category.name.toLowerCase()]);
+      this.router.navigate(['/categoria', categoryNameWithDashes]);
 
       // this.emitCategorySelection(category);
     }
