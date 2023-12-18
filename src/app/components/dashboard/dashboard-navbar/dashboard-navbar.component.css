@@ -1,9 +1,7 @@
-img {
-    
-    width: 15rem;
-    height: auto;
-    cursor: pointer;
-    
+figure {
+  width: 15rem;
+  height: auto;
+  cursor: pointer;
 }
 
 .btn-toggle {
@@ -12,4 +10,3 @@ img {
   font-weight: 600;
 
 }
-

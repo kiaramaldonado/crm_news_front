@@ -2,13 +2,14 @@
     <a [routerLink]="['/articulo', article.slug]" class="headline-card-link">
         <div class="headline-card mb-3">
             <img [src]="article.url" class="headline-card-img-left">
-            <div class="headline-card-body">
-                <h3 class="headline-card-title">{{ article.title }}</h3>
-                <p class="headline-card-text">{{ article.excerpt }}</p>
+            <div class="headline-card-body d-flex flex-column">
+                <div class="d-flex flex-column flex-grow-1">
+                    <h3 class="headline-card-title">{{ article.title }}</h3>
+                    <p class="headline-card-text">{{ article.excerpt }}</p>
+                </div>
+                <button class="btn btn-warning align-self-end" *ngIf="userInfo && userInfo.role === 'editor'"
+                    (click)="onClick($event)">Quitar de la cabecera</button>
             </div>
-            <button class="btn btn-warning" *ngIf="userInfo && userInfo.role === 'editor'"
-                (click)="onClick($event)">Quitar de la
-                cabecera</button>
         </div>
     </a>
 </div>

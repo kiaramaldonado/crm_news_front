@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Category } from 'src/app/core/models/category.interface';
 import { Router } from '@angular/router';
 
@@ -42,11 +42,29 @@ export class CategoryNavbarComponent {
   }
 
 
-  // Toggle to show or not show the subcategories
+  // Toggle para las subcategorías
   showSubcategories: { [categoryId: number]: boolean } = {};
 
   toggleSubcategories(category: any, isHovered: boolean): void {
     this.showSubcategories[category.id] = isHovered;
+  }
+
+  // Toggle para responsividad en pantallas pequeñas
+  showCategories = true;
+
+  toggleCategories(): void {
+    this.showCategories = !this.showCategories;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.showCategories = false;
+    this.updateToggleState();
+  }
+
+  private updateToggleState(): void {
+    const smallViewport = window.innerWidth <= 768;
+    this.showCategories = !smallViewport;
   }
 
 }
