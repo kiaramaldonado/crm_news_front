@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/core/models/category.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
@@ -18,6 +18,7 @@ export class EditArticleComponent {
   allCategories: Category[] = [];
   parentCategories: Category[] = [];
   subcategories: Category[] = [];
+  maxTitleLength: number = 300;
 
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
@@ -26,13 +27,13 @@ export class EditArticleComponent {
 
   constructor() {
     this.formArticleEdit = new FormGroup({
-      title: new FormControl(),
-      excerpt: new FormControl(),
-      body: new FormControl(),
-      category_id: new FormControl(),
-      url: new FormControl(),
-      source: new FormControl(),
-      caption: new FormControl()
+      title: new FormControl(null, [Validators.required]),
+      excerpt: new FormControl(null, [Validators.required]),
+      body: new FormControl(null, [Validators.required]),
+      category_id: new FormControl(null, [Validators.required]),
+      url: new FormControl(null, [Validators.required]),
+      source: new FormControl(null, [Validators.required]),
+      caption: new FormControl(null, [Validators.required])
     }, [])
   }
 
@@ -54,6 +55,17 @@ export class EditArticleComponent {
     if (event.target.value) {
       this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value))
     }
+  }
+
+  onTitleChange(event: any): void {
+    const titleControl = this.formArticleEdit.get('title');
+    if (titleControl && titleControl.value && titleControl.value.length > this.maxTitleLength) {
+      titleControl.setValue(titleControl.value.substring(0, this.maxTitleLength));
+    }
+  }
+
+  checkError(controlName: string, errorName: string) {
+    return this.formArticleEdit.get(controlName)?.hasError(errorName) && this.formArticleEdit.get(controlName)?.touched;
   }
 
   async onSubmit() {

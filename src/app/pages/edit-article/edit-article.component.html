@@ -7,7 +7,12 @@
         <div class="row">
             <div class="mb-12 col-xs-12 col-md-12">
                 <label class="form-label">Título</label>
-                <input type="text" class="form-control" formControlName="title">
+                <input type="text" class="form-control" formControlName="title" (input)="onTitleChange($event)">
+                <span class="character-count">{{ formArticleEdit.get('title')?.value?.length || 0 }}/{{ maxTitleLength
+                    }}</span>
+                <p class="error-message" *ngIf="checkError('title', 'required')">
+                    El campo título es obligatorio.
+                </p>
             </div>
         </div>
 
@@ -15,6 +20,9 @@
             <div class="mb-12 col-xs-12 col-md-12">
                 <label class="form-label">Extracto/Resumen</label>
                 <input type="text" class="form-control" formControlName="excerpt">
+                <p class="error-message" *ngIf="checkError('excerpt', 'required')">
+                    El campo resumen es obligatorio.
+                </p>
             </div>
         </div>
 
@@ -23,22 +31,34 @@
                 <label class="form-label">Contenido</label>
                 <p-editor [style]="{ height: '320px' }" formControlName="body">
                 </p-editor>
+                <p class="error-message" *ngIf="checkError('body', 'required')">
+                    El campo contenido es obligatorio.
+                </p>
             </div>
         </div>
         <div class="row">
             <div class="mb-12 col-xs-12 col-md-12">
                 <label class="form-label">Imagen</label>
                 <input type="text" class="form-control" formControlName="url">
+                <p class="error-message" *ngIf="checkError('url', 'required')">
+                    La URL de la imagen es obligatoria.
+                </p>
             </div>
         </div>
         <div class="row">
             <div class="mb-6 col-xs-12 col-md-6">
                 <label class="form-label">Fuente</label>
                 <input type="text" class="form-control" formControlName="source">
+                <p class="error-message" *ngIf="checkError('source', 'required')">
+                    La fuente de la imagen es obligatoria.
+                </p>
             </div>
             <div class="mb-6 col-xs-12 col-md-6">
                 <label class="form-label">Pie de foto</label>
                 <input type="text" class="form-control" formControlName="caption">
+                <p class="error-message" *ngIf="checkError('caption', 'required')">
+                    El pie de foto es obligatorio.
+                </p>
             </div>
         </div>
 
@@ -54,8 +74,16 @@
                     <option *ngFor="let subcategory of subcategories" [value]="subcategory.id">{{subcategory.name}}
                     </option>
                 </select>
+                <p class="error-message" *ngIf="checkError('category_id', 'required')">
+                    Categoría y subcategorías son obligatorias.
+                </p>
             </div>
         </div>
-        <button type="submit" value="Enviar" class="btn btn-success">Guardar como borrador</button>
+        <button type="submit" value="Enviar" class="btn btn-warning" [disabled]="!formArticleEdit.valid">Guardar como
+            borrador</button>
+        <p class="error-message" *ngIf="!formArticleEdit.valid">Aún quedan campos pendientes del formulario.</p>
     </form>
+    <div>
+
+    </div>
 </div>

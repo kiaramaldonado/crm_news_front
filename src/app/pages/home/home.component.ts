@@ -83,8 +83,9 @@ export class HomeComponent {
           article.category_id === category.id && article.status === 'publicado');
       }
     } else {
-      this.standardArticles = this.publishedArray.filter(article =>
-        article.status === 'publicado');
+      // this.standardArticles = this.publishedArray.filter(article =>
+      //   article.status === 'publicado');
+      this.standardArticles = this.publishedArray;
     }
 
   }

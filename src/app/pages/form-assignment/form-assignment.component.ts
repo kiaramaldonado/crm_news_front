@@ -65,6 +65,18 @@ export class FormAssignmentComponent {
     this.newAssignment.value.headline = 1;
   }
 
+  isDisabled() {
+    if (this.showPublishDiv) {
+      return false;
+    }
+    if (this.showAssignDiv) {
+      if (this.newAssignment.value.user_id !== this.userInfo.id) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   async onSubmit() {
     try {
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
