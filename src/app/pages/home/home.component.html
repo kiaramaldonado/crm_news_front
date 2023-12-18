@@ -12,11 +12,11 @@
 
         <div>
             <!-- Heading -->
-            <h2 *ngIf="selectedCategory" class="home-heading">{{ selectedCategory.name }}</h2>
+            <h2 *ngIf="originalCategoryName" class="home-heading">{{ originalCategoryName }}</h2>
         </div>
 
         <!-- Headline -->
-        <div class="col-md-12" *ngIf="!selectedCategory && headlineArticle">
+        <div class="col-md-12" *ngIf="!originalCategoryName && headlineArticle">
             <app-headline-card [article]="headlineArticle"></app-headline-card>
         </div>
 

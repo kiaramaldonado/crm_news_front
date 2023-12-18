@@ -15,53 +15,10 @@ export class HomeComponent {
   headlineArticle: Article | null = null;
   standardArticles: Article[] = [];
   categories: Category[] = [];
-  selectedCategory: Category | null = null;
+  categorySelected: string = '';
+  originalCategoryName: string = '';
   articlesService = inject(ArticlesService);
   activatedRoute = inject(ActivatedRoute);
-
-  // async ngOnInit() {
-  //   this.publishedArray = await this.articlesService.getAllPublished();
-  //   console.log(this.publishedArray);
-
-  //   this.categories = await this.articlesService.getAllCategories();
-
-  //   this.headlineArticle = this.publishedArray.find(article => article.headline)!;
-  //   this.standardArticles = this.publishedArray.filter(article => !article.headline);
-  //   this.activatedRoute.params.subscribe(async (params: any) => {
-  //     this.headlineArticle = null;
-  //     this.standardArticles = await this.articlesService.getByCategory(params.category);
-
-
-
-  //   })
-  // }
-
-  // async ngOnInit() {
-  //   try {
-  //     this.publishedArray = await this.articlesService.getAllPublished();
-  //     console.log('Artículos publicados:', this.publishedArray);
-
-  //     this.categories = await this.articlesService.getAllCategories();
-  //     console.log('Categorías:', this.categories);
-
-  //     this.headlineArticle = this.publishedArray.find(article => article.headline)!;
-  //     this.standardArticles = this.publishedArray.filter(article => !article.headline);
-  //     console.log(this.standardArticles);
-
-  //   } catch (error) {
-  //     console.error('Error al obtener datos:', error);
-  //   }
-
-  //   this.activatedRoute.params.subscribe(async (params: any) => {
-  //     this.headlineArticle = null;
-  //     try {
-  //       this.standardArticles = await this.articlesService.getByCategory(params.category);
-  //       console.log('Artículos filtrados por categoría:', this.standardArticles);
-  //     } catch (error) {
-  //       console.error('Error al filtrar por categoría:', error);
-  //     }
-  //   });
-  // }
 
 
   async ngOnInit() {
@@ -71,6 +28,7 @@ export class HomeComponent {
       console.log(params);
       this.categories = await this.articlesService.getAllCategories();
       console.log('Categorías:', this.categories);
+
       if (Object.keys(params).length === 0) {
         console.log('no hay params');
         this.publishedArray = await this.articlesService.getAllPublished();
@@ -88,11 +46,17 @@ export class HomeComponent {
 
 
         try {
+          this.categorySelected = params.category;
           let category_selected = this.categories.find((category) => {
-            return category.name.toLowerCase() === params.category.toLowerCase();
-          })
-          this.standardArticles = await this.articlesService.getByCategoryId(category_selected!.id);
-          console.log('Artículos filtrados por categoría:', this.standardArticles);
+            return category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "") === params.category.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
+
+          });
+          if (category_selected) {
+            this.originalCategoryName = category_selected.name;
+            this.standardArticles = await this.articlesService.getByCategoryId(category_selected!.id);
+            console.log('Artículos filtrados por categoría:', this.standardArticles);
+          }
+
 
 
         } catch (error) {
@@ -109,7 +73,6 @@ export class HomeComponent {
   async filterByCategory(category: Category | null) {
     console.log(category);
 
-    this.selectedCategory = category;
 
     if (category) {
       if (category.parent_id === null) {
@@ -126,3 +89,4 @@ export class HomeComponent {
 
   }
 }
+
