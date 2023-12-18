@@ -13,6 +13,7 @@ import { DashboardImagesComponent } from './components/dashboard/dashboard-image
 import { ArticleDetailComponent } from './pages/article-detail/article-detail.component';
 import { FormAssignmentComponent } from './pages/form-assignment/form-assignment.component';
 import { DashboardEquipoComponent } from './components/dashboard/dashboard-equipo/dashboard-equipo.component';
+import { HomeDashboardComponent } from './components/dashboard/home-dashboard/home-dashboard.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
@@ -34,6 +35,7 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'perfil', component: FormEditComponent },
+      { path: '', component: HomeDashboardComponent},
       { path: 'imagenes', component: DashboardImagesComponent },
       { path: 'equipo', component: DashboardEquipoComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
