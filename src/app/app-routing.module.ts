@@ -17,18 +17,16 @@ import { HomeDashboardComponent } from './components/dashboard/home-dashboard/ho
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/guirre' },
+
   {
-    path: 'guirre',
-    component: HomeComponent,
-    children: [
-
-      {
-        path: ':category', component: HomeComponent
-      },
-
-    ]
+    path: 'guirre', component: HomeComponent
   },
+  {
 
+    path: 'category/:category', component: HomeComponent
+
+  },
+  { path: 'articulo/:slug', component: ArticleDetailComponent },
   { path: 'registro', component: FormRegistrationComponent },
   { path: 'login', component: FormLoginComponent },
   {
@@ -48,7 +46,7 @@ const routes: Routes = [
 
     ]
   },
-{ path: 'articulo/:slug', component: ArticleDetailComponent },
+
 
   { path: '**', redirectTo: '/guirre' }
 ];

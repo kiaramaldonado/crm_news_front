@@ -2,8 +2,7 @@
     <app-header-landing-page></app-header-landing-page>
 </div>
 <div class="col-md-12">
-    <app-category-navbar [categories]="categories" [selectedCategory]="selectedCategory"
-        (categorySelected)="navigateToCategory($event)">
+    <app-category-navbar [categories]="categories">
     </app-category-navbar>
 </div>
 <div class="container mt-5" *ngIf="article">
