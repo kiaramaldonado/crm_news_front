@@ -11,14 +11,36 @@ export class DashboardImagesComponent {
 
   ImagesService = inject(ImagesService);
 
-  ImagesArr: Image[] = [];
+  ImagesArr: any[] = [];
+   page: number = 1;
+  totalPages:number = 0;
+  pageSize: number = 10;
 
   async ngOnInit() {
+    this.cargarImagenes();
+  }
+
+  modificarPagina(siguiente: boolean){
+    if(siguiente) this.page++;
+    else this.page--;
+    console.log(this.page);
+    
+    this.cargarImagenes();
+  }
+
+  async cargarImagenes() {
     try {
-      this.ImagesArr = await this.ImagesService.getAllImages()
+      const response = await this.ImagesService.getAllImages(this.page);
+      console.log(response);
+      this.ImagesArr = response;
+      
+      // this.totalPages = response.info.pages;
+      // this.ImagesArr = response.results;
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   }
+
+
 
 }
