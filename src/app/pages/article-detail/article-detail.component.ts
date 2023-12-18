@@ -107,19 +107,23 @@ export class ArticleDetailComponent {
 
   // }
 
-  async navigateToCategory(category: Category | null) {
-    this.selectedCategory = category;
+  // async navigateToCategory(category: Category | null) {
+  //   this.selectedCategory = category;
 
-    if (category) {
-      // Construir la ruta según la categoría seleccionada
-      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
-      this.router.navigate(['/guirre', categoryNameWithDashes]);  // Utilizar la propiedad id
+  //   if (category) {
 
-      // Navegar directamente a la categoría
-      this.router.navigateByUrl(categoryNameWithDashes);
-    } else {
-      // Navegar a la página principal si no hay categoría seleccionada
-      this.router.navigateByUrl('/guirre');
-    }
-  }
+  //     const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
+  //     this.router.navigate(['/guirre', categoryNameWithDashes]);
+
+  //     this.router.navigateByUrl(categoryNameWithDashes);
+  //   } else {
+
+  //     this.router.navigateByUrl('/guirre');
+  //   }
+  // }
 }
+
+
+
+
+

@@ -87,5 +87,15 @@ export class ArticlesService {
   }
 
 
+  getByCategory(category: string): Promise<Article[]> {
+    return firstValueFrom(
+      this.httpClient.get<Article[]>(`${this.baseUrl}/categories/${category}`)
+    )
+  }
 
+  getByCategoryId(category: number): Promise<Article[]> {
+    return firstValueFrom(
+      this.httpClient.get<Article[]>(`${this.baseUrl}/categories/id/${category}`)
+    )
+  }
 }

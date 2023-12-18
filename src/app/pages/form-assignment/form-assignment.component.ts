@@ -71,7 +71,6 @@ export class FormAssignmentComponent {
       console.log(response);
 
       await Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "Operación realizada con éxito",
         showConfirmButton: false,
