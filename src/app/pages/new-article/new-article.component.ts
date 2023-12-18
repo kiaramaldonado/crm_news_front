@@ -51,7 +51,6 @@ export class NewArticleComponent {
       this.router.navigate(['/area-personal']);
       this.newArticle.reset();
       await Swal.fire({
-        position: "top-end",
         icon: "success",
         title: "Artículo creado",
         showConfirmButton: false,

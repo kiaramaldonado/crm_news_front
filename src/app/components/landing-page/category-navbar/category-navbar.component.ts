@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Category } from 'src/app/core/models/category.interface';
 import { Router } from '@angular/router';
 
@@ -14,6 +14,11 @@ export class CategoryNavbarComponent {
 
   constructor(private router: Router) { };
 
+
+  ngOnInit() {
+    console.log(this.categories, 'Esta es la buena');
+
+  }
   emitCategorySelection(category: Category | null): void {
     this.selectedCategory = category;
     this.categorySelected.emit(category);
@@ -35,18 +40,36 @@ export class CategoryNavbarComponent {
       event.stopPropagation(); // Stop the event propagation
       const route = category.parent_id === null ? '/guirre' : '/guirre';
       const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
-      this.router.navigate([route, categoryNameWithDashes]);
+      this.router.navigate(['/category', category.name.toLowerCase()]);
 
-      this.emitCategorySelection(category);
+      // this.emitCategorySelection(category);
     }
   }
 
 
-  // Toggle to show or not show the subcategories
+  // Toggle para las subcategorías
   showSubcategories: { [categoryId: number]: boolean } = {};
 
   toggleSubcategories(category: any, isHovered: boolean): void {
     this.showSubcategories[category.id] = isHovered;
+  }
+
+  // Toggle para responsividad en pantallas pequeñas
+  showCategories = true;
+
+  toggleCategories(): void {
+    this.showCategories = !this.showCategories;
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.showCategories = false;
+    this.updateToggleState();
+  }
+
+  private updateToggleState(): void {
+    const smallViewport = window.innerWidth <= 768;
+    this.showCategories = !smallViewport;
   }
 
 }

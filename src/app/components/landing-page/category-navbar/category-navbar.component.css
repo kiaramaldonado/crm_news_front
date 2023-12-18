@@ -1,3 +1,11 @@
+li {
+    list-style: none;
+}
+
+p {
+    margin: 0;
+}
+
 .navbar {
     justify-content: center;
 }
@@ -12,6 +20,7 @@
     margin: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .navbar-item {
@@ -41,13 +50,31 @@
     padding: 8px;
     text-align: left;
     white-space: nowrap;
-    /* Evita el salto de línea en subcategorías largas */
 }
 
-li {
-    list-style: none;
+.hide-categories {
+    display: none;
 }
 
-p {
-    margin: 0;
+.toggle-button {
+    padding: 10px;
+    width: 100vw;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+@media (min-width: 769px) {
+    .hide-button {
+        display: none !important;
+    }
+}
+
+@media (max-width: 769px) {
+    .navbar-list {
+        flex-direction: column;
+    }
+
+    .navbar-item {
+        width: 100vw;
+    }
 }

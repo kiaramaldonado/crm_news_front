@@ -1,6 +1,8 @@
 <nav class="navbar">
     <div class="navbar-body">
-        <ul class="navbar-list border-top border-bottom">
+        <button class="btn navbar-item toggle-button hide-button" (click)="toggleCategories()">▾ CATEGORÍAS
+            ▾</button>
+        <ul class="navbar-list border-top border-bottom" [ngClass]="{ 'hide-categories': !showCategories }">
             <ng-container *ngFor="let category of categories">
                 <ng-container *ngIf="category.parent_id === null">
                     <li class="navbar-item" (mouseenter)="toggleSubcategories(category, true)"
