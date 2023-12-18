@@ -32,6 +32,7 @@ import { FormAssignmentComponent } from './pages/form-assignment/form-assignment
 import { HomeAppComponent } from './pages/home-app/home-app.component';
 import { DashboardEquipoComponent } from './components/dashboard/dashboard-equipo/dashboard-equipo.component';
 import { TeammateCardComponent } from './components/dashboard/teammate-card/teammate-card.component';
+import { HomeDashboardComponent } from './components/dashboard/home-dashboard/home-dashboard.component';
 
 
 
@@ -61,7 +62,8 @@ import { TeammateCardComponent } from './components/dashboard/teammate-card/team
     FormAssignmentComponent,
     HomeAppComponent,
     DashboardEquipoComponent,
-    TeammateCardComponent
+    TeammateCardComponent,
+    HomeDashboardComponent
 
   ],
   imports: [
