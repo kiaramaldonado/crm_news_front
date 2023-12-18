@@ -14,10 +14,12 @@ import Swal from 'sweetalert2';
 export class NewArticleComponent {
 
   newArticle: FormGroup;
-  articlesService = inject(ArticlesService);
   allCategories: Category[] = [];
   parentCategories: Category[] = [];
   subcategories: Category[] = [];
+  maxTitleLength: number = 300;
+
+  articlesService = inject(ArticlesService);
   router = inject(Router);
 
 
@@ -42,6 +44,17 @@ export class NewArticleComponent {
     if (event.target.value) {
       this.subcategories = this.allCategories.filter(category => category.parent_id === Number(event.target.value));
     }
+  }
+
+  onTitleChange(event: any): void {
+    const titleControl = this.newArticle.get('title');
+    if (titleControl && titleControl.value && titleControl.value.length > this.maxTitleLength) {
+      titleControl.setValue(titleControl.value.substring(0, this.maxTitleLength));
+    }
+  }
+
+  checkError(controlName: string, errorName: string) {
+    return this.newArticle.get(controlName)?.hasError(errorName) && this.newArticle.get(controlName)?.touched;
   }
 
   async onSubmit() {
