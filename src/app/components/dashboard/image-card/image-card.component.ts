@@ -11,63 +11,41 @@ export class ImageCardComponent implements AfterViewInit {
 
   @Input() oneImage!: Image;
   @ViewChild('copyButton') copyButton!: ElementRef;
-  copySuccess= false;
+  copySuccess = false;
 
+ 
   ngAfterViewInit(): void {
-    // Creamos una nueva instancia de ClipboardJS después de la inicialización de la vista
     this.initializeClipboard();
   }
 
   onClickCopy() {
-    // Seteamos la URL actual para copiar
     const currentImageUrl = this.oneImage.url;
 
-    // Creamos una nueva instancia de ClipboardJS y la destruimos después de copiar
-    const clipboard = new ClipboardJS(this.copyButton.nativeElement, {
-      text: () => currentImageUrl
-    });
-
-    // Evento cuando se copia exitosamente
-    clipboard.on('success', (e) => {
-      console.log(`Texto copiado: ${currentImageUrl}`);
-      e.clearSelection();
-
-      // Destruimos la instancia de ClipboardJS después de copiar
-      clipboard.destroy();
-
-      // Actualizamos la propiedad copySuccess
+    try {
+      // Intenta copiar la URL al portapapeles
+      navigator.clipboard.writeText(currentImageUrl);
       this.copySuccess = true;
 
-      // Después de un tiempo, restablecemos copySuccess a false
       setTimeout(() => {
         this.copySuccess = false;
-      }, 2000); // Restablecer después de 3 segundos (ajusta esto según tus necesidades)
-    });
-    
-
-    // Evento en caso de error al copiar
-    clipboard.on('error', (e) => {
-      console.error(`Error al copiar: ${e.action}`);
-    });
+      }, 2000);
+    } catch (error) {
+      console.error('Error al copiar:', error);
+    }
   }
 
   private initializeClipboard() {
-    // Creamos una nueva instancia de ClipboardJS después de la inicialización de la vista
-    const clipboard = new ClipboardJS(this.copyButton.nativeElement, {
-      text: () => this.oneImage.url
-    });
+    // No es necesario utilizar la biblioteca ClipboardJS para escribir en el portapapeles nativo
+    // Puedes usar la API de Clipboard directamente
+    const clipboardButton = this.copyButton.nativeElement;
 
     // Evento cuando se copia exitosamente
-    clipboard.on('success', (e) => {
+    clipboardButton.addEventListener('copy', () => {
       console.log(`Texto copiado: ${this.oneImage.url}`);
-      e.clearSelection();
-
-      // Destruimos la instancia de ClipboardJS después de copiar
-      clipboard.destroy();
     });
 
     // Evento en caso de error al copiar
-    clipboard.on('error', (e) => {
+    clipboardButton.addEventListener('error', (e:any) => {
       console.error(`Error al copiar: ${e.action}`);
     });
   }
