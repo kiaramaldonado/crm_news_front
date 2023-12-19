@@ -28,7 +28,7 @@ export class ImageCardComponent implements AfterViewInit {
 
       setTimeout(() => {
         this.copySuccess = false;
-      }, 2000);
+      }, 1000);
     } catch (error) {
       console.error('Error al copiar:', error);
     }

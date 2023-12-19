@@ -1,17 +1,22 @@
 <div class="card-container">
     <div class="card mb-3 card-body">
+        
         <figure>
             <img [src]="oneImage.url" alt="">
         </figure>
+        
         <p class="card-text">{{ oneImage.source }}</p>
         <p class="card-text" style="display: none;">{{ oneImage.url }}</p>
+        
         <div class="button-display">
-            <button #copyButton class="btn btn-warning" (click)="onClickCopy()" title="Copiar url de la imagen"><i
-                    class="bi bi-copy"></i></button>
-            <div *ngIf="copySuccess" class="alert alert-success mt-2" role="alert">
-                URL copiada exitosamente.
-            </div>
+            <button #copyButton class="btn btn-warning" (click)="onClickCopy()" title="Copiar url de la imagen"><i class="bi bi-copy"></i></button>
+            <p class="pop-up" *ngIf="copySuccess" >
+                url copiada
+        </p>
         </div>
         
     </div>
 </div>
+
+
+<!-- class="alert alert-success mt-2" role="alert" -->
