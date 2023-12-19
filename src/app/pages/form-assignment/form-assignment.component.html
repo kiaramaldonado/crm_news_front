@@ -62,8 +62,7 @@
                     style="height: 100px" formControlName="comments"></textarea>
                 <label for="floatingTextarea2">Deja aquí tus comentarios o sugerencias.</label>
             </div>
-            <button type="submit" value="Enviar" class="btn btn-warning"
-                [disabled]="newAssignment.pristine">Aceptar</button>
+            <button type="submit" value="Enviar" class="btn btn-warning" [disabled]="isDisableAssign()">Aceptar</button>
         </div>
 
 
