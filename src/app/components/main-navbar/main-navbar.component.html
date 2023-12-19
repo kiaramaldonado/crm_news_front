@@ -1,5 +1,10 @@
 <nav *ngIf="!usersService.isLogged()" class="navbar navbar-expand-lg navbar-light bg-light p-3">
     <div class="container-fluid">
+        <form [formGroup]="formSubscribe" (ngSubmit)="onSubmit()">
+            <input type="email" placeholder="Escribe aquí tu email" class="form-control" formControlName="email">
+            <button class="btn btn-warning">Suscríbete</button>
+        </form>
+        <p class="alert" *ngIf="subscribeSuccess">Suscripción realizada exitosamente</p>
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
                 <a class="nav-link" [routerLink]="['/registro']">Registro</a>
