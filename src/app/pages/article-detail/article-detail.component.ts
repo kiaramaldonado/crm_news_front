@@ -83,6 +83,14 @@ export class ArticleDetailComponent {
 
     return categoryName;
   }
+
+  getProfileImage(): string {
+
+    if (this.creatorInfo && this.creatorInfo.image) {
+      return this.creatorInfo.image;
+    }
+    return 'assets/images/logo_cuadrado.png';
+  }
 }
 
 
