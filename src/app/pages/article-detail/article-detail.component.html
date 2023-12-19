@@ -26,7 +26,7 @@
     <div class="row mt-4" *ngIf="creatorInfo">
         <div class="col-md-6 offset-md-3 text-center">
             <figure class="profile-img">
-                <img [src]="creatorInfo.image" alt={{ creatorInfo.name }} class="mr-3 rounded-circle">
+                <img [src]="creatorInfo.image" [alt]="creatorInfo.name" class="mr-3 rounded-circle">
             </figure>
 
             <div class="row mt-2">
