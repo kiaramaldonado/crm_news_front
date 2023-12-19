@@ -11,6 +11,7 @@ export class ImageCardComponent implements AfterViewInit {
 
   @Input() oneImage!: Image;
   @ViewChild('copyButton') copyButton!: ElementRef;
+  copySuccess= false;
 
   ngAfterViewInit(): void {
     // Creamos una nueva instancia de ClipboardJS después de la inicialización de la vista
@@ -33,7 +34,16 @@ export class ImageCardComponent implements AfterViewInit {
 
       // Destruimos la instancia de ClipboardJS después de copiar
       clipboard.destroy();
+
+      // Actualizamos la propiedad copySuccess
+      this.copySuccess = true;
+
+      // Después de un tiempo, restablecemos copySuccess a false
+      setTimeout(() => {
+        this.copySuccess = false;
+      }, 2000); // Restablecer después de 3 segundos (ajusta esto según tus necesidades)
     });
+    
 
     // Evento en caso de error al copiar
     clipboard.on('error', (e) => {
