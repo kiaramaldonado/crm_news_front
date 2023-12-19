@@ -1,0 +1,25 @@
+.btn {
+    width: 15%;
+    margin: 0px 8px 15px 8px;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+.buttons {
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+.page-link {
+    background-color: var(--color-primary);
+    border: 0;
+    color: grey;
+    padding: 9px 18px;
+}
+
+.page-link.active {
+    background-color: var(--color-hover);
+    color: black;
+}
