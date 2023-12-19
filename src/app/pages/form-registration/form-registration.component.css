@@ -15,3 +15,7 @@ figure {
     font-size: 20px;
 }
 
+button {
+    display: block;
+    margin: 0 auto;
+}

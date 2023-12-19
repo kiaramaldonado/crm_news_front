@@ -1,4 +1,6 @@
 /* @import "../src/assets/reset.css"; */
+@import url(https://fonts.googleapis.com/css?family=Old+Standard+TT:regular,italic,700);
+
 * {
     margin: 0;
     padding: 0;

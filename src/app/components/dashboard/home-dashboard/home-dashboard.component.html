@@ -2,8 +2,8 @@
 <div *ngIf="lastAsign && lastAsign.length > 0; else noAsignations">
     
 <div>
-    <p *ngIf="user && user.role === 'editor'">Aqui tienes los últimos articulos asignados para revisar</p>
-    <p *ngIf="user && user.role === 'redactor'">Aqui tienes tus ultimos borradores</p>
+    <p *ngIf="user && user.role === 'editor'">Aquí tienes los últimos artículos asignados para revisar</p>
+    <p *ngIf="user && user.role === 'redactor'">Aquí tienes tus últimos borradores</p>
 </div>
   <app-draft-card *ngFor="let article of lastAsign" [oneArticle]="article"></app-draft-card>
 </div>
@@ -11,4 +11,3 @@
 <ng-template #noAsignations>
   <p>No tienes tareas pendientes</p>
 </ng-template>
-
