@@ -77,6 +77,13 @@ export class FormAssignmentComponent {
     return true;
   }
 
+  isDisableAssign() {
+    if (this.newAssignment.value.user_id !== this.userInfo.id) {
+      return false;
+    }
+    return true
+  }
+
   async onSubmit() {
     try {
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);

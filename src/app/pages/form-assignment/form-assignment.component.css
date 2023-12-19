@@ -6,3 +6,7 @@ div.redactor div {
 div.form-switch {
     margin-left: 100px;
 }
+
+button {
+    float: right;
+}
