@@ -10,3 +10,12 @@
 .empty {
     height: 55px;
 }
+
+p,
+a {
+    text-align: center;
+}
+
+a {
+    margin-bottom: 30px;
+}
