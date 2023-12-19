@@ -18,7 +18,7 @@ export class EditArticleComponent {
   allCategories: Category[] = [];
   parentCategories: Category[] = [];
   subcategories: Category[] = [];
-  maxTitleLength: number = 300;
+  maxLength: number = 0;
 
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
@@ -57,10 +57,11 @@ export class EditArticleComponent {
     }
   }
 
-  onTitleChange(event: any): void {
-    const titleControl = this.formArticleEdit.get('title');
-    if (titleControl && titleControl.value && titleControl.value.length > this.maxTitleLength) {
-      titleControl.setValue(titleControl.value.substring(0, this.maxTitleLength));
+  onFieldChange(fieldName: string, event: any, maxLength: number): void {
+    const fieldControl = this.formArticleEdit.get(fieldName);
+
+    if (fieldControl && fieldControl.value && fieldControl.value.length > maxLength) {
+      fieldControl.setValue(fieldControl.value.substring(0, maxLength));
     }
   }
 

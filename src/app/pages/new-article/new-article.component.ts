@@ -17,7 +17,7 @@ export class NewArticleComponent {
   allCategories: Category[] = [];
   parentCategories: Category[] = [];
   subcategories: Category[] = [];
-  maxTitleLength: number = 300;
+  maxLength: number = 0;
 
   articlesService = inject(ArticlesService);
   router = inject(Router);
@@ -46,10 +46,11 @@ export class NewArticleComponent {
     }
   }
 
-  onTitleChange(event: any): void {
-    const titleControl = this.newArticle.get('title');
-    if (titleControl && titleControl.value && titleControl.value.length > this.maxTitleLength) {
-      titleControl.setValue(titleControl.value.substring(0, this.maxTitleLength));
+  onFieldChange(fieldName: string, event: any, maxLength: number): void {
+    const fieldControl = this.newArticle.get(fieldName);
+
+    if (fieldControl && fieldControl.value && fieldControl.value.length > maxLength) {
+      fieldControl.setValue(fieldControl.value.substring(0, maxLength));
     }
   }
 

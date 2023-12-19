@@ -35,16 +35,12 @@ export class ImageCardComponent implements AfterViewInit {
   }
 
   private initializeClipboard() {
-    // No es necesario utilizar la biblioteca ClipboardJS para escribir en el portapapeles nativo
-    // Puedes usar la API de Clipboard directamente
     const clipboardButton = this.copyButton.nativeElement;
 
-    // Evento cuando se copia exitosamente
     clipboardButton.addEventListener('copy', () => {
       console.log(`Texto copiado: ${this.oneImage.url}`);
     });
 
-    // Evento en caso de error al copiar
     clipboardButton.addEventListener('error', (e:any) => {
       console.error(`Error al copiar: ${e.action}`);
     });

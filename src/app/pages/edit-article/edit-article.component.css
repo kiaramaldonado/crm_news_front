@@ -14,7 +14,12 @@ select.ng-invalid.ng-touched {
 
 .character-count {
     float: right;
-    font-size: 80%;
+    font-size: 70%;
     color: grey;
     margin-right: 10px;
+}
+
+.invalid-article {
+    margin-top: 3rem;
+    color: grey;
 }
