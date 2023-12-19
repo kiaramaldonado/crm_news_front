@@ -3,8 +3,9 @@
         (click)="onClickUnfold($event)">
         <div class="perfil">
             <p>{{ profileInfo.name }}</p>
-            <img [src]="getProfileImage()" alt="Icono" class="rounded-circle">
-
+            <figure class="profile-img">
+                <img [src]="getProfileImage()" alt="Icono">
+            </figure>
         </div>
 
     </a>
