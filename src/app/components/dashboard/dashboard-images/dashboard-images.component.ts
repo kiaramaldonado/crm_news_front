@@ -11,36 +11,44 @@ export class DashboardImagesComponent {
 
   ImagesService = inject(ImagesService);
 
-  ImagesArr: any[] = [];
-   page: number = 1;
-  totalPages:number = 0;
-  pageSize: number = 10;
-
-  async ngOnInit() {
-    this.cargarImagenes();
-  }
-
-  modificarPagina(siguiente: boolean){
-    if(siguiente) this.page++;
-    else this.page--;
-    console.log(this.page);
-    
-    this.cargarImagenes();
+  allImages: any[] = [];  
+  ImagesArr: any[] = [];   
+  pageSize: number = 4;
+  page: number = 1;
+  totalPages: number = 0;
+  
+async ngOnInit() {
+    await this.cargarImagenes();
   }
 
   async cargarImagenes() {
     try {
-      const response = await this.ImagesService.getAllImages(this.page);
+      const response = await this.ImagesService.getAllImages();
       console.log(response);
-      this.ImagesArr = response;
-      
-      // this.totalPages = response.info.pages;
-      // this.ImagesArr = response.results;
+      this.allImages = response;
+      this.totalPages = Math.ceil(this.allImages.length / this.pageSize);
+      this.actualizarImagenesPagina();
     } catch (error) {
       console.log(error);
     }
   }
 
+  actualizarImagenesPagina() {
+    const startIndex = (this.page - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.ImagesArr = this.allImages.slice(startIndex, endIndex);
+  }
 
+  modificarPagina(siguiente: boolean) {
+    if (siguiente && this.page < this.totalPages) {
+      this.page++;
+    } else if (!siguiente && this.page > 1) {
+      this.page--;
+    }
 
+    console.log(this.page);
+
+    this.actualizarImagenesPagina();
+  }
 }
+
