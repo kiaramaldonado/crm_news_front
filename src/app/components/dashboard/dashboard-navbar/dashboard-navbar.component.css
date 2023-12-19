@@ -1,12 +1,52 @@
+.dashboard-nav {
+  height: 90vh;
+}
+
 figure {
   width: 15rem;
   height: auto;
   cursor: pointer;
 }
 
-.btn-toggle {
-  padding: 8px 0;
-  padding-left: 20px;
+button {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 0 8px 20px;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
   font-weight: 600;
+}
 
+.hide-nav {
+  display: none;
+}
+
+.toggle-button {
+  padding: 10px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+  justify-content: center;
+}
+
+@media (min-width: 769px) {
+  .toggle-button {
+    display: none !important;
+  }
+}
+
+@media (max-width: 769px) {
+  .navbar-list {
+    flex-direction: column;
+  }
+
+  .dashboard-nav {
+    height: auto;
+  }
+
+  button {
+    justify-content: center;
+    padding: 8px 0;
+  }
 }
