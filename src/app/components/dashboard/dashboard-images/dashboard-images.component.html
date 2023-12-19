@@ -1,6 +1,10 @@
 <div>
     <h3 class="">Imágenes disponibles</h3>
     <article>
+        <button class="btn btn-warning m-2" (click)="modificarPagina(false)" *ngIf="page > 1">Anterior</button>
+        <button class="btn btn-warning m-2" (click)="modificarPagina(true)" [disabled]="page === totalPages">Siguiente</button>
+    </article>
+    <article>
         <app-image-card class="articulo" *ngFor="let image of ImagesArr" [oneImage]="image"></app-image-card>
     </article>
 

@@ -16,19 +16,16 @@ export class ArticleDetailComponent {
   article!: Article;
   creatorInfo!: User | undefined;
   slug: string = '';
-
-  activatedRoute = inject(ActivatedRoute);
-  articlesService = inject(ArticlesService);
-  usersService = inject(UsersService);
-
   users: User[] = [];
-
   publishedArray: Article[] = [];
   headlineArticle: Article | null = null;
   standardArticles: Article[] = [];
   categories: Category[] = [];
   selectedCategory: Category | null = null;
 
+  activatedRoute = inject(ActivatedRoute);
+  articlesService = inject(ArticlesService);
+  usersService = inject(UsersService);
   router = inject(Router);
 
   async ngOnInit() {
@@ -40,7 +37,6 @@ export class ArticleDetailComponent {
 
         this.users = await this.usersService.getAll();
         console.log(this.users);
-
 
         if (this.article && this.article.creator_id !== undefined) {
 
@@ -66,7 +62,6 @@ export class ArticleDetailComponent {
   }
 
 
-
   getCategoryName(categoryId: number | undefined): string {
     if (!categoryId) {
       return '';
@@ -88,38 +83,9 @@ export class ArticleDetailComponent {
 
     return categoryName;
   }
-
-  // async filterByCategory(category: Category | null) {
-  //   this.selectedCategory = category;
-
-  //   if (category) {
-  //     if (category.parent_id === null) {
-  //       const allArticles = await this.articlesService.getByParentCategory(category.id);
-  //       this.standardArticles = allArticles.filter(article => article.status === 'publicado');
-  //     } else {
-  //       this.standardArticles = this.publishedArray.filter(article =>
-  //         article.category_id === category.id && article.status === 'publicado');
-  //     }
-  //   } else {
-  //     this.standardArticles = this.publishedArray.filter(article =>
-  //       article.status === 'publicado');
-  //   }
-
-  // }
-
-  async navigateToCategory(category: Category | null) {
-    this.selectedCategory = category;
-
-    if (category) {
-      // Construir la ruta según la categoría seleccionada
-      const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
-      this.router.navigate(['/guirre', categoryNameWithDashes]);  // Utilizar la propiedad id
-
-      // Navegar directamente a la categoría
-      this.router.navigateByUrl(categoryNameWithDashes);
-    } else {
-      // Navegar a la página principal si no hay categoría seleccionada
-      this.router.navigateByUrl('/guirre');
-    }
-  }
 }
+
+
+
+
+

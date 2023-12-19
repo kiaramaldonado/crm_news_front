@@ -11,9 +11,15 @@ export class ImagesService {
   private baseUrl: string = 'http://localhost:3000/api/images';
   private httpClient = inject(HttpClient);
 
-  getAllImages(): Promise<Image[]> {
+  // getAllImages(): Promise<any[]> {
+  //   return firstValueFrom(
+  //     this.httpClient.get<any[]>(this.baseUrl)
+  //   );
+  // }
+
+   getAllImages(page: number): Promise<any[]> {
     return firstValueFrom(
-      this.httpClient.get<Image[]>(this.baseUrl)
+      this.httpClient.get<any[]>(`${this.baseUrl}/${page}`)
     );
+    }
   }
-}
