@@ -8,6 +8,10 @@
         <div class="button-display">
             <button #copyButton class="btn btn-warning" (click)="onClickCopy()" title="Copiar url de la imagen"><i
                     class="bi bi-copy"></i></button>
+                    <div *ngIf="copySuccess" class="alert alert-success mt-2" role="alert">
+        URL copiada exitosamente.
+      </div>
         </div>
+        
     </div>
 </div>
