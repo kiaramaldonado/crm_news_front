@@ -1,11 +1,21 @@
 <div>
     <h3 class="">Imágenes disponibles</h3>
-    <article>
-        <button class="btn btn-warning m-2" (click)="modificarPagina(false)" *ngIf="page > 1">Anterior</button>
-        <button class="btn btn-warning m-2" (click)="modificarPagina(true)" [disabled]="page === totalPages">Siguiente</button>
+    <article class="row buttons">
+        <button class="btn btn-warning col-6" (click)="modificarPagina(false)" [disabled]="page === 1">Anterior</button>
+        <button class="btn btn-warning col-6" (click)="modificarPagina(true)"
+            [disabled]="page === totalPages">Siguiente</button>
     </article>
-    <article>
-        <app-image-card class="articulo" *ngFor="let image of ImagesArr" [oneImage]="image"></app-image-card>
+    <article class="row">
+        <div class="col-md-6" *ngFor="let image of ImagesArr">
+            <app-image-card class="articulo" [oneImage]="image"></app-image-card>
+        </div>
+        <div class="col-12">
+            <ul class="pagination">
+                <li class="page-item" *ngFor="let pageNumber of getPageNumbers()">
+                    <button class="page-link" (click)="goToPage(pageNumber)"
+                        [class.active]="pageNumber === page">{{pageNumber}}</button>
+                </li>
+            </ul>
+        </div>
     </article>
-
 </div>

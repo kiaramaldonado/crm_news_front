@@ -1,5 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, Input } from '@angular/core';
 import { User } from 'src/app/core/models/user.interface';
 
 @Component({
@@ -9,15 +8,22 @@ import { User } from 'src/app/core/models/user.interface';
 })
 export class DashboardNavbarComponent {
 
-// router = inject(Router);
-@Input() userLogged!: User;
+  @Input() userLogged!: User;
 
-  
-// status: string = ''; // Agrega una propiedad para almacenar el estado actual
+  showNav = true;
 
+  toggleNav(): void {
+    this.showNav = !this.showNav;
+  }
 
-//   updateStatus(status: string) {
-//     this.status = status; // Actualiza la propiedad de estado
-//     this.router.navigate(['/area-personal/articulos', status]);
-//   }
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.showNav = false;
+    this.updateToggleState();
+  }
+
+  private updateToggleState(): void {
+    const smallViewport = window.innerWidth <= 768;
+    this.showNav = !smallViewport;
+  }
 }

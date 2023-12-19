@@ -1,6 +1,29 @@
-img {
-    width: 100%;
-    height: auto;
-    display: block;
+.card {
+    height: 350px;
 }
 
+figure {
+    height: 70%;
+}
+
+.card-text {
+    text-align: center;
+    font-weight: 500;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+button {
+    width: 20%;
+}
+
+.button-display {
+    text-align: center;
+    justify-self: center;
+    margin-bottom: 0;
+}

@@ -35,7 +35,7 @@ const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'perfil', component: FormEditComponent },
-      { path: '', component: HomeDashboardComponent},
+      { path: '', component: HomeDashboardComponent },
       { path: 'imagenes', component: DashboardImagesComponent },
       { path: 'equipo', component: DashboardEquipoComponent },
       { path: 'articulos', component: ArticlesByUserComponent },
@@ -52,19 +52,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    scrollPositionRestoration: 'enabled'
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
 
 
-// {
-//   path: 'dashboard',
-//   component: Component,
-//   children: [
-//     { path: 'form-edit', component:  },
-//     { path: 'new', component:  },
-//     { path: 'articlesByUser', component:  },
-//     { path: 'logout', component:  }
-//   ]
-// }

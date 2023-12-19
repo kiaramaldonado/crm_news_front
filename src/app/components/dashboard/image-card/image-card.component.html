@@ -1,11 +1,11 @@
 <div class="card-container">
-    <div class="card mb-3">
-        <div class="card-body">
-            <figure>
-                <img [src]="oneImage.url" alt="">
-            </figure>
-            <p class="card-text">{{ oneImage.source }}</p>
-            <p class="card-text" style="display: none;">{{ oneImage.url }}</p>
+    <div class="card mb-3 card-body">
+        <figure>
+            <img [src]="oneImage.url" alt="">
+        </figure>
+        <p class="card-text">{{ oneImage.source }}</p>
+        <p class="card-text" style="display: none;">{{ oneImage.url }}</p>
+        <div class="button-display">
             <button #copyButton class="btn btn-warning" (click)="onClickCopy()" title="Copiar url de la imagen"><i
                     class="bi bi-copy"></i></button>
         </div>

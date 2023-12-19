@@ -28,6 +28,11 @@
                         <app-standard-card [article]="article"></app-standard-card>
                     </div>
                 </ng-container>
+                <p *ngIf="standardArticles.length === 0">
+                    Lo sentimos, por el momento no hay artículos en la categoría '{{ originalCategoryName }}'.
+                </p>
+                <a routerLink="/guirre" *ngIf="standardArticles.length === 0">Click aquí para volver a la página de
+                    inicio.</a>
             </div>
         </div>
     </div>
