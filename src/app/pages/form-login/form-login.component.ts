@@ -17,12 +17,17 @@ export class FormLoginComponent {
   router = inject(Router);
   submitted = false;
   error: string = '';
+  showPassword = false;
 
   constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl(),
     });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   async onSubmit() {
@@ -47,7 +52,8 @@ export class FormLoginComponent {
         icon: 'error',
         title: 'Error de inicio de sesión',
         text: this.error,
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#ffc720',
       });
     }
   }

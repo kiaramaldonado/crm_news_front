@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/core/models/user.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
+import { SubscribersService } from 'src/app/core/services/subscribers.service';
 import { UsersService } from 'src/app/core/services/users.service';
 
 import Swal from 'sweetalert2';
@@ -24,6 +25,7 @@ export class FormAssignmentComponent {
 
   articlesService = inject(ArticlesService);
   usersService = inject(UsersService);
+  subscribersService = inject(SubscribersService);
   router = inject(Router);
   activatedRoute = inject(ActivatedRoute);
 
@@ -86,6 +88,7 @@ export class FormAssignmentComponent {
 
   async onSubmit() {
     try {
+      this.newAssignment.value.actual_status = this.newAssignment.value.actual_status[0];
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
       console.log(response);
 
