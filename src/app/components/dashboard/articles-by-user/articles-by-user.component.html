@@ -1,21 +1,18 @@
-
 <div *ngIf="newFiltrado && newFiltrado.length > 0">
-    
-<div>
-     <h3 *ngIf="user && user.role === 'redactor'" class="articulo">Tus borradores</h3>
-    <h3 *ngIf="user && user.role === 'editor'">Para revisar</h3>
-</div>
-<article>
+
+    <div>
+        <h3 *ngIf="user && user.role === 'redactor'" class="articulo">Tus borradores:</h3>
+        <h3 *ngIf="user && user.role === 'editor'">Para revisar:</h3>
+    </div>
+    <article>
         <app-draft-card class="articulosRedactor" *ngFor="let article of newFiltrado"
             [oneArticle]="article"></app-draft-card>
-</article>
+    </article>
 </div>
 <div *ngIf="newFiltrado && newFiltrado.length === 0" class="vacio">
-    
-      <p *ngIf="user && user.role === 'editor'" >No tienes articulos asignados para su revisión</p>
-      <p *ngIf="user && user.role === 'redactor'">No tienes ningun articulo en borrador.<br>Crea un <a [routerLink]="['nuevo']">articulo</a></p>
-      
-    
+
+    <p *ngIf="user && user.role === 'editor'">No tienes artículos asignados para su revisión.</p>
+    <p *ngIf="user && user.role === 'redactor'">No tienes ningún artículo en borrador.<br>Crea un <a
+            [routerLink]="['nuevo']">artículo</a>.</p>
 
 </div>
-

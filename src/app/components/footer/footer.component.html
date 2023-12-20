@@ -1,13 +1,25 @@
 <footer class="footer bg-light">
-    <div class="container">
+    <div>
+        <div class="subscription" *ngIf="!usersService.isLogged()">
+            <span>¿Quieres recibir nuestras novedades?</span>
+            <form [formGroup]="formSubscribe" class="subscription-form" (ngSubmit)="onSubmit()">
+                <input type="email" placeholder="Escribe aquí tu email" class="form-control" formControlName="email">
+                <button class="btn btn-warning">Suscríbete</button>
+            </form>
+            <p class="alert" *ngIf="subscribeSuccess">Suscripción realizada exitosamente.</p>
+            <p class="alert" *ngIf="subscribeFail">Dirección de correo ya registrada.</p>
+        </div>
         <div class="row align-items-center">
-            <div class="col-md-4 my-auto text-center">
+
+            <div class="col-md-4 logo-footer">
                 <img src="../../../assets/images/logo_circular.png" alt="Logo" class="img-fluid">
             </div>
-            <div class="col-md-4 text-center my-auto">
+
+            <div class="col-md-6 copy">
                 <p>&copy; 2023 Guirre Noticiero, S.A.</p>
             </div>
-            <div class="col-md-4 text-center text-md-end my-auto mb-md-3">
+
+            <div class="social col-md-2">
                 <a href="https://www.facebook.com/" target="_blank" class="me-2 fs-3"><i class="bi bi-facebook"></i></a>
                 <a href="https://www.twitter.com/" target="_blank" class="me-2 fs-3"><i class="bi bi-twitter-x"></i></a>
                 <a href="https://www.instagram.com/" target="_blank" class="fs-3"><i class="bi bi-instagram"></i></a>

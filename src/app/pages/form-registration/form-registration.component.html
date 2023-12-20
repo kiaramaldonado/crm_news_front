@@ -50,7 +50,7 @@
                     <!-- ERROR: El correo debe de ser @guirre.com -->
                     <div *ngIf="submitted && registerForm.get('email')?.hasError('emaildomain') && !emailExists"
                         class="error-message">
-                        El correo electrónico debe de tener el dominio '@guirre.com'.
+                        El correo electrónico debe tener el dominio '@guirre.com'.
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                 </div>
                 <!-- REPETICIÓN DE CONTRASEÑA -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
-                    <label class="form-label">Repite Contraseña</label>
+                    <label class="form-label">Repite contraseña</label>
                     <input type="password" class="form-control" formControlName="repite_password" [class.error-border]="submitted && registerForm.get('password')?.hasError('required') || 
                     submitted && registerForm.hasError('passwordrepeatvalidator')" (focus)="clearErrors()">
                     <!-- ERROR: No coinciden las contraseñas-->
@@ -120,7 +120,7 @@
                     <input type="text" class="form-control" formControlName="image">
                 </div>
 
-                <button type="submit" class="btn btn-warning">Enviar</button>
+                <button type="submit" class="mb-4 btn btn-warning">Enviar</button>
             </form>
         </div>
     </div>
