@@ -36,4 +36,13 @@ img {
   margin-top: 20px;
 
 }
+.position-eye{
+  position: relative;
+}
+.eye{
+  position: absolute;
+  top: 25%;
+  left: 88%;
+  color: rgb(80, 80, 80);
+}
 
