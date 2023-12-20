@@ -17,12 +17,17 @@ export class FormLoginComponent {
   router = inject(Router);
   submitted = false;
   error: string = '';
+  showPassword = false;
 
   constructor() {
     this.loginForm = new FormGroup({
       email: new FormControl(),
       password: new FormControl(),
     });
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   async onSubmit() {
