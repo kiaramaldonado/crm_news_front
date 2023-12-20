@@ -1,7 +1,49 @@
-.card-team{
+h3 {
+    margin: 20px 0;
+}
+
+.container {
+    margin: 0;
+}
+
+.card-team {
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--gap)*2);
     justify-content: center;
     margin: 0 auto;
+}
+
+.btn {
+    width: 15%;
+    min-width: fit-content;
+    margin: 0px 8px 15px 8px;
+}
+
+.pagination {
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.buttons {
+    justify-content: space-between;
+    margin-top: 3px;
+}
+
+.page-link {
+    background-color: var(--color-primary);
+    border: 0;
+    color: grey;
+    padding: 9px 18px;
+}
+
+.page-link.active {
+    background-color: var(--color-hover);
+    color: black;
+}
+
+@media (max-width: 480px) {
+    .row {
+        margin: 0;
+    }
 }

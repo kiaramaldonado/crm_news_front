@@ -1,5 +1,6 @@
 .btn {
     width: 15%;
+    min-width: fit-content;
     margin: 0px 8px 15px 8px;
 }
 
