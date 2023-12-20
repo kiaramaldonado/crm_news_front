@@ -75,6 +75,8 @@ export class ArticlesService {
   }
 
   assignArticle(articleId: string | number, body: Assignment) {
+    console.log(body);
+
     return firstValueFrom(
       this.httpClient.post<Assignment>(`${this.baseUrl}/asign/${articleId}`, body)
     )

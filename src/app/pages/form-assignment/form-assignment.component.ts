@@ -88,6 +88,7 @@ export class FormAssignmentComponent {
 
   async onSubmit() {
     try {
+      this.newAssignment.value.actual_status = this.newAssignment.value.actual_status[0];
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
       console.log(response);
 
