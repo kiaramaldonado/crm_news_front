@@ -3,6 +3,7 @@
     <!-- <app-article-detail *ngIf="userInfo && userInfo.role === 'redactor'"></app-article-detail> -->
 
     <h2 class="fw-bolder display-3">Opciones del artículo</h2>
+    <h5 *ngIf="articleInfo">{{articleInfo.title}}</h5>
     <hr>
     <form class="assign" [formGroup]="newAssignment" (ngSubmit)="onSubmit()">
         <!-- EDITOR -->
@@ -29,7 +30,7 @@
             <div class="reasignar" *ngIf="showAssignDiv">
                 <h3>Reasignar para revisión</h3>
                 <hr>
-                <label class="form-label">Selecciona a alguien del departamento de redacción</label>
+                <label class="form-label">Selecciona a alguien del departamento de redacción:</label>
                 <select class="form-select options" multiple aria-label="multiple select example"
                     formControlName="user_id">
                     <!-- <option value="" selected>Selecciona una opción</option> -->
@@ -50,7 +51,7 @@
             <h3>Asignar para su revisión</h3>
             <hr>
             <div class="col-md-12">
-                <label class="form-label">Selecciona a alguien del departamento de edición</label>
+                <label class="form-label">Selecciona a alguien del departamento de edición:</label>
                 <select class="form-select options" multiple aria-label="multiple select example"
                     formControlName="user_id">
                     <!-- <option value="" selected>Selecciona una opción</option> -->

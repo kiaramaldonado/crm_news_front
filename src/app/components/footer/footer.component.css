@@ -2,6 +2,40 @@ i {
     color: rgba(0, 0, 0, 0.802);
 }
 
-p {
-    font-family: 'Old Standard TT', serif;
+.align-items-center {
+    justify-content: space-around;
+}
+
+.logo-footer {
+    width: 20%;
+    height: auto;
+}
+
+.copy {
+    text-align: center;
+
+    p {
+        font-family: 'Old Standard TT', serif;
+    }
+}
+
+.subscription {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.subscription-form {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+}
+
+span {
+    font-size: 80%;
+    color: grey;
+}
+
+input::placeholder {
+    font-size: 80%;
 }

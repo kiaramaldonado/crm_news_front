@@ -59,3 +59,12 @@ img {
 .error-border {
     border: 1px solid #dc3545;
 }
+
+a {
+    text-decoration: none;
+    color: grey;
+
+    &:hover {
+        color: inherit;
+    }
+}

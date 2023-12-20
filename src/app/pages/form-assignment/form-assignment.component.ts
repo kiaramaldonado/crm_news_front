@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Article } from 'src/app/core/models/article.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { SubscribersService } from 'src/app/core/services/subscribers.service';
@@ -18,6 +19,7 @@ export class FormAssignmentComponent {
   newAssignment: FormGroup;
   articleId: string = '';
   userInfo!: User;
+  articleInfo!: Article;
   allEditors: User[] = [];
   allWriters: User[] = [];
   showAssignDiv: boolean = false;
@@ -35,7 +37,7 @@ export class FormAssignmentComponent {
       user_id: new FormControl(''),
       articles_id: new FormControl(),
       comments: new FormControl(),
-      actual_status: new FormControl('revision'),
+      actual_status: new FormControl(['revision']),
       headline: new FormControl(0)
     }, [])
   }
@@ -48,9 +50,12 @@ export class FormAssignmentComponent {
     this.activatedRoute.params.subscribe(async params => {
       this.articleId = params['articleId'];
       const response = await this.articlesService.getById(this.articleId);
-      const { id } = response;
+      const { id, title } = response;
       this.newAssignment.patchValue({ articles_id: id, user_id: this.userInfo.id });
     })
+
+    this.articleInfo = await this.articlesService.getById(this.articleId);
+
   }
 
   onClick($event: any) {
@@ -88,7 +93,10 @@ export class FormAssignmentComponent {
 
   async onSubmit() {
     try {
+      console.log(this.newAssignment.value.actual_status);
       this.newAssignment.value.actual_status = this.newAssignment.value.actual_status[0];
+      console.log(this.newAssignment.value.actual_status);
+
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
       console.log(response);
 
