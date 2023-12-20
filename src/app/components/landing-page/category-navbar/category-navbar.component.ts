@@ -12,17 +12,14 @@ export class CategoryNavbarComponent {
   @Input() selectedCategory: Category | null = null;
   @Output() categorySelected = new EventEmitter<Category | null>();
 
+  showSubcategories: { [categoryId: number]: boolean } = {};
+  showCategories = true;
+
   constructor(private router: Router) { };
-
-
 
   emitCategorySelection(category: Category | null): void {
     this.selectedCategory = category;
     this.categorySelected.emit(category);
-  }
-
-  hasSubcategories(parentId: number | null): boolean {
-    return this.categories.some(category => category.parent_id === parentId);
   }
 
   getSubcategories(parentId: number | null): Category[] {
@@ -34,25 +31,15 @@ export class CategoryNavbarComponent {
       this.router.navigate(['/guirre']);
       this.emitCategorySelection(null);
     } else {
-      event.stopPropagation(); // Stop the event propagation
-      const route = category.parent_id === null ? '/guirre' : '/guirre';
+      event.stopPropagation();
       const categoryNameWithDashes = category.name.toLowerCase().replace(/[,\s]+/g, '-').normalize("NFD").replace(/[\u0300-\u036f"'`´‘’“”:]/g, "");
       this.router.navigate(['/categoria', categoryNameWithDashes]);
-
-      // this.emitCategorySelection(category);
     }
   }
-
-
-  // Toggle para las subcategorías
-  showSubcategories: { [categoryId: number]: boolean } = {};
 
   toggleSubcategories(category: any, isHovered: boolean): void {
     this.showSubcategories[category.id] = isHovered;
   }
-
-  // Toggle para responsividad en pantallas pequeñas
-  showCategories = true;
 
   toggleCategories(): void {
     this.showCategories = !this.showCategories;

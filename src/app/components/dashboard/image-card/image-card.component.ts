@@ -1,6 +1,5 @@
 import { Component, Input, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { Image } from 'src/app/core/models/image.interface';
-import * as ClipboardJS from 'clipboard';
 
 @Component({
   selector: 'app-image-card',
@@ -13,7 +12,7 @@ export class ImageCardComponent implements AfterViewInit {
   @ViewChild('copyButton') copyButton!: ElementRef;
   copySuccess = false;
 
- 
+
   ngAfterViewInit(): void {
     this.initializeClipboard();
   }
@@ -22,7 +21,6 @@ export class ImageCardComponent implements AfterViewInit {
     const currentImageUrl = this.oneImage.url;
 
     try {
-      // Intenta copiar la URL al portapapeles
       navigator.clipboard.writeText(currentImageUrl);
       this.copySuccess = true;
 
@@ -41,7 +39,7 @@ export class ImageCardComponent implements AfterViewInit {
       console.log(`Texto copiado: ${this.oneImage.url}`);
     });
 
-    clipboardButton.addEventListener('error', (e:any) => {
+    clipboardButton.addEventListener('error', (e: any) => {
       console.error(`Error al copiar: ${e.action}`);
     });
   }

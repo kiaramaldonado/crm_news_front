@@ -38,7 +38,6 @@ export class UsersService {
     else return false;
   }
 
-
   getById(): Promise<User> {
     return firstValueFrom(
       this.httpClient.get<User>(`${this.baseUrl}/profile`)

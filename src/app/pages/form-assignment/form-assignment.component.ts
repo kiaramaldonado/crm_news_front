@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Article } from 'src/app/core/models/article.interface';
 import { User } from 'src/app/core/models/user.interface';
@@ -50,7 +50,7 @@ export class FormAssignmentComponent {
     this.activatedRoute.params.subscribe(async params => {
       this.articleId = params['articleId'];
       const response = await this.articlesService.getById(this.articleId);
-      const { id, title } = response;
+      const { id } = response;
       this.newAssignment.patchValue({ articles_id: id, user_id: this.userInfo.id });
     })
 
@@ -93,12 +93,8 @@ export class FormAssignmentComponent {
 
   async onSubmit() {
     try {
-      console.log(this.newAssignment.value.actual_status);
       this.newAssignment.value.actual_status = this.newAssignment.value.actual_status[0];
-      console.log(this.newAssignment.value.actual_status);
-
       const response = await this.articlesService.assignArticle(this.articleId, this.newAssignment.value);
-      console.log(response);
 
       await Swal.fire({
         icon: "success",

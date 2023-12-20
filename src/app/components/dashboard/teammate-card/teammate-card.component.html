@@ -6,7 +6,8 @@
     </div>
     <div class="text">
         <h4>{{oneUser.name}}</h4>
-        <p class="card-text">{{oneUser.role}}</p>
+        <p class="card-text" *ngIf="oneUser.role === 'editor'">Equipo de edición</p>
+        <p class="card-text" *ngIf="oneUser.role === 'redactor'">Equipo de redacción</p>
     </div>
     <div class="button">
         <button class="btn btn-sm btn-warning"><a href="mailto:{{oneUser.email}}">Enviar email</a></button>

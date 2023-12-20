@@ -72,8 +72,6 @@ export class EditArticleComponent {
   async onSubmit() {
     try {
       const response = await this.articlesService.updateById(this.articleId, this.formArticleEdit.value);
-      console.log(response);
-
       await Swal.fire({
         icon: 'success',
         title: 'Artículo editado',
@@ -90,7 +88,6 @@ export class EditArticleComponent {
         title: 'Error',
         text: 'La edición del artículo ha fallado'
       });
-
 
     }
   }

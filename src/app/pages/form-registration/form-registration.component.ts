@@ -82,12 +82,9 @@ export class FormRegistrationComponent {
       try {
 
         const response = await this.usersService.registration(this.registerForm.value);
-        console.log(response);
-
 
         this.registerForm.reset();
         this.router.navigate(['/login']);
-
 
         Swal.fire({
           icon: 'success',
@@ -97,7 +94,6 @@ export class FormRegistrationComponent {
         });
       } catch (error) {
         console.log(error);
-
 
         Swal.fire({
           icon: 'error',

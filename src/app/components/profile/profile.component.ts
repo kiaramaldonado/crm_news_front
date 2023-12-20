@@ -21,7 +21,6 @@ export class ProfileComponent {
 
   openDropdown = false;
 
-
   ngOnInit() {
     this.loadProfileInfo();
   }

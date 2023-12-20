@@ -30,19 +30,20 @@ img {
   border-top-right-radius: 0;
 }
 
-.registro {
+.registration {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 
 }
-.position-eye{
+
+.position-eye {
   position: relative;
 }
-.eye{
+
+.eye {
   position: absolute;
   top: 25%;
   left: 88%;
   color: rgb(80, 80, 80);
 }
-

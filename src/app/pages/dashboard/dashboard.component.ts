@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Article } from 'src/app/core/models/article.interface';
 import { User } from 'src/app/core/models/user.interface';
 import { ArticlesService } from 'src/app/core/services/articles.service';
 import { ImagesService } from 'src/app/core/services/images.service';
@@ -24,13 +23,11 @@ export class DashboardComponent {
     try {
       this.userLogged = await this.usersService.getById();
       if (this.userLogged.name) {
-      const nameParts = this.userLogged.name.split(' ');
-      this.displayName = nameParts[0]; 
-    } else {
-      this.displayName = undefined;
-    }
-
-    console.log(this.displayName);
+        const nameParts = this.userLogged.name.split(' ');
+        this.displayName = nameParts[0];
+      } else {
+        this.displayName = undefined;
+      }
     } catch (error) {
       console.log(error);
     }

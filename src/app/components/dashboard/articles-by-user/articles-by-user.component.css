@@ -8,13 +8,13 @@ article {
     gap: 10px
 }
 
-.articulosRedactor {
+.articlesByWriter {
     width: 100%;
 }
 
-.vacio{
+.vacio {
     text-align: center;
     color: rgb(99, 98, 98);
-    
+
 
 }

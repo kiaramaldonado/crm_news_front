@@ -1,5 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Image } from 'src/app/core/models/image.interface';
 import { ImagesService } from 'src/app/core/services/images.service';
 
 @Component({
@@ -9,53 +8,49 @@ import { ImagesService } from 'src/app/core/services/images.service';
 })
 export class DashboardImagesComponent {
 
-  ImagesService = inject(ImagesService);
-
   allImages: any[] = [];
-  ImagesArr: any[] = [];
+  imagesArr: any[] = [];
   pageSize: number = 4;
   page: number = 1;
   totalPages: number = 0;
   maxVisiblePages: number = 10;
 
+  imagesService = inject(ImagesService);
+
   async ngOnInit() {
-    await this.cargarImagenes();
+    await this.loadImages();
   }
 
-  async cargarImagenes() {
+  async loadImages() {
     try {
-      const response = await this.ImagesService.getAllImages();
-      console.log(response);
+      const response = await this.imagesService.getAllImages();
       this.allImages = response;
       this.totalPages = Math.ceil(this.allImages.length / this.pageSize);
-      this.actualizarImagenesPagina();
+      this.updateImagesPage();
     } catch (error) {
       console.log(error);
     }
   }
 
-  actualizarImagenesPagina() {
+  updateImagesPage() {
     const startIndex = (this.page - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.ImagesArr = this.allImages.slice(startIndex, endIndex);
+    this.imagesArr = this.allImages.slice(startIndex, endIndex);
   }
 
-  modificarPagina(siguiente: boolean) {
+  changePage(siguiente: boolean) {
     if (siguiente && this.page < this.totalPages) {
       this.page++;
     } else if (!siguiente && this.page > 1) {
       this.page--;
     }
 
-    console.log(this.page);
-
-    this.actualizarImagenesPagina();
+    this.updateImagesPage();
   }
 
   getPageNumbers(): number[] {
     const totalPagesArray = Array.from({ length: this.totalPages }, (_, index) => index + 1);
 
-    // Asegura que siempre se vean 10 páginas
     if (this.totalPages <= this.maxVisiblePages) {
       return totalPagesArray;
     }
@@ -64,7 +59,6 @@ export class DashboardImagesComponent {
     let startPage = Math.max(1, this.page - halfVisible);
     let endPage = Math.min(this.totalPages, startPage + this.maxVisiblePages - 1);
 
-    // Ajusta si se acerca a los extremos
     if (endPage - startPage < this.maxVisiblePages - 1) {
       startPage = Math.max(1, endPage - this.maxVisiblePages + 1);
     }
@@ -75,7 +69,7 @@ export class DashboardImagesComponent {
   goToPage(pageNumber: number): void {
     if (pageNumber >= 1 && pageNumber <= this.totalPages) {
       this.page = pageNumber;
-      this.actualizarImagenesPagina();
+      this.updateImagesPage();
     }
   }
 }

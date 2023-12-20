@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { Image } from '../models/image.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +16,9 @@ export class ImagesService {
     );
   }
 
-   getAllImagesPage(page: number): Promise<any[]> {
+  getAllImagesPage(page: number): Promise<any[]> {
     return firstValueFrom(
       this.httpClient.get<any[]>(`${this.baseUrl}/${page}`)
     );
-    }
   }
+}

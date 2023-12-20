@@ -36,18 +36,9 @@ export class ArticleDetailComponent {
       try {
 
         this.users = await this.usersService.getAll();
-        console.log(this.users);
 
         if (this.article && this.article.creator_id !== undefined) {
-
           this.creatorInfo = this.users.find(user => user.id === this.article.creator_id);
-
-          if (this.creatorInfo) {
-            console.log('Nombre del creador:', this.creatorInfo.name);
-            console.log('Imagen del creador:', this.creatorInfo.image);
-          } else {
-            console.warn('No se encontró el usuario con ID:', this.article.creator_id);
-          }
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -60,7 +51,6 @@ export class ArticleDetailComponent {
     this.headlineArticle = this.publishedArray.find(article => article.headline)!;
     this.standardArticles = this.publishedArray.filter(article => !article.headline);
   }
-
 
   getCategoryName(categoryId: number | undefined): string {
     if (!categoryId) {

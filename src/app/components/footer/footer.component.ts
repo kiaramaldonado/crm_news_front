@@ -25,12 +25,10 @@ export class FooterComponent {
     }, [])
   }
 
-
   async onSubmit() {
 
     try {
       const response = await this.subscribersService.subscribe(this.formSubscribe.value);
-      console.log(response);
       this.formSubscribe.reset();
       if (!response.error) {
         this.subscribeSuccess = true;
@@ -46,8 +44,7 @@ export class FooterComponent {
 
     } catch (error) {
       console.log(error);
-
     }
-
   }
+
 }

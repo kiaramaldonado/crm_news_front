@@ -1,12 +1,12 @@
 <div>
     <h3 class="">Imágenes disponibles</h3>
     <article class="row buttons">
-        <button class="btn btn-warning col-6" (click)="modificarPagina(false)" [disabled]="page === 1">Anterior</button>
-        <button class="btn btn-warning col-6" (click)="modificarPagina(true)"
+        <button class="btn btn-warning col-6" (click)="changePage(false)" [disabled]="page === 1">Anterior</button>
+        <button class="btn btn-warning col-6" (click)="changePage(true)"
             [disabled]="page === totalPages">Siguiente</button>
     </article>
     <article class="row">
-        <div class="col-md-6" *ngFor="let image of ImagesArr">
+        <div class="col-md-6" *ngFor="let image of imagesArr">
             <app-image-card [oneImage]="image"></app-image-card>
         </div>
         <div class="col-12">

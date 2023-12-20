@@ -1,12 +1,10 @@
 <div class="container">
 
-    <!-- <app-article-detail *ngIf="userInfo && userInfo.role === 'redactor'"></app-article-detail> -->
-
     <h2 class="fw-bolder display-3">Opciones del artículo</h2>
     <h5 *ngIf="articleInfo">{{articleInfo.title}}</h5>
     <hr>
     <form class="assign" [formGroup]="newAssignment" (ngSubmit)="onSubmit()">
-        <!-- EDITOR -->
+
         <div class="editor" *ngIf="userInfo && userInfo.role === 'editor'">
             <div class="col-md-12">
                 <label class="form-label">Selecciona una opción</label>
@@ -33,7 +31,6 @@
                 <label class="form-label">Selecciona a alguien del departamento de redacción:</label>
                 <select class="form-select options" multiple aria-label="multiple select example"
                     formControlName="user_id">
-                    <!-- <option value="" selected>Selecciona una opción</option> -->
                     <option *ngFor="let writer of allWriters" [value]="writer.id">
                         {{writer.name}}</option>
                 </select>
@@ -46,7 +43,6 @@
             <button type="submit" value="Enviar" class="btn btn-warning" [disabled]="isDisabled()">Aceptar</button>
         </div>
 
-        <!-- REDACTOR -->
         <div class="redactor" *ngIf="userInfo && userInfo.role === 'redactor'">
             <h3>Asignar para su revisión</h3>
             <hr>
@@ -54,7 +50,6 @@
                 <label class="form-label">Selecciona a alguien del departamento de edición:</label>
                 <select class="form-select options" multiple aria-label="multiple select example"
                     formControlName="user_id">
-                    <!-- <option value="" selected>Selecciona una opción</option> -->
                     <option *ngFor="let editor of allEditors" [value]="editor.id">{{editor.name}}</option>
                 </select>
             </div>

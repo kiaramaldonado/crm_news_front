@@ -1,5 +1,5 @@
 <div class="containerForm">
-    <div class="registro">
+    <div class="registration">
         <figure [routerLink]="['/guirre']">
             <img class="mb-4" src="../../../assets/images/logo_portada.png" alt="">
         </figure>
@@ -7,76 +7,61 @@
         <div class="formulario">
             <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-                <!-- NOMBRE -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Nombre</label>
                     <input type="text" class="form-control" formControlName="name"
                         [class.error-border]="submitted && registerForm.get('name')?.hasError('required')" required>
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('name')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
                 </div>
 
-                <!-- NOMBRE DE USUARIO -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Nombre de usuario</label>
                     <input type="text" class="form-control" formControlName="username"
                         [class.error-border]="submitted && (registerForm.get('username')?.hasError('required') || usernameExists)">
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('username')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
-                    <!-- ERROR: Usuario ya existe -->
                     <div *ngIf="usernameExists" class="error-message">
                         El nombre de usuario ya está en uso.
                     </div>
                 </div>
 
-                <!-- EMAIL -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Email</label>
                     <input type="email" class="form-control" formControlName="email"
                         [class.error-border]="(submitted && registerForm.get('email')?.hasError('email')) || 
                     (submitted && registerForm.get('email')?.hasError('required')) || (submitted && registerForm.get('email')?.hasError('emaildomain')) ||emailExists">
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('email')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
-                    <!-- ERROR: Email ya existe -->
                     <div *ngIf="emailExists" class="error-message">
                         El correo electrónico ya está registrado.
                     </div>
-                    <!-- ERROR: El correo debe de ser @guirre.com -->
                     <div *ngIf="submitted && registerForm.get('email')?.hasError('emaildomain') && !emailExists"
                         class="error-message">
                         El correo electrónico debe tener el dominio '@guirre.com'.
                     </div>
                 </div>
 
-                <!-- CONTRASEÑA Y REPETICIÓN DE CONTRASEÑA -->
-                <!-- CONTRASEÑA -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Contraseña</label>
                     <input type="password" class="form-control" formControlName="password" [class.error-border]="submitted && (registerForm.get('password')?.hasError('required')) || 
                             submitted && registerForm.hasError('passwordrepeatvalidator')" (focus)="clearErrors()">
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('password')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
                 </div>
-                <!-- REPETICIÓN DE CONTRASEÑA -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Repite contraseña</label>
                     <input type="password" class="form-control" formControlName="repite_password" [class.error-border]="submitted && registerForm.get('password')?.hasError('required') || 
                     submitted && registerForm.hasError('passwordrepeatvalidator')" (focus)="clearErrors()">
-                    <!-- ERROR: No coinciden las contraseñas-->
                     <div *ngIf="submitted && registerForm.hasError('passwordrepeatvalidator')" class="error-message">
                         Las contraseñas no coinciden.
                     </div>
                 </div>
 
-                <!-- DEPARTAMENTO -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Departamento</label>
                     <select class="form-select" formControlName="role"
@@ -84,37 +69,31 @@
                         <option value="redactor">Redacción</option>
                         <option value="editor">Edición</option>
                     </select>
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('role')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
                 </div>
 
-                <!-- FECHA DE NACIMIENTO -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Fecha de nacimiento</label>
                     <input type="date" class="form-control" formControlName="date_of_birth"
                         [class.error-border]="submitted && registerForm.get('date_of_birth')?.hasError('required')"
                         required>
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('date_of_birth')?.hasError('required')"
                         class="error-message">
                         Este campo es necesario.
                     </div>
                 </div>
 
-                <!-- TELÉFONO -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Teléfono</label>
                     <input type="text" class="form-control" formControlName="phone"
                         [class.error-border]="submitted && registerForm.get('phone')?.hasError('required')" required>
-                    <!-- ERROR: El campo es necesario -->
                     <div *ngIf="submitted && registerForm.get('phone')?.hasError('required')" class="error-message">
                         Este campo es necesario.
                     </div>
                 </div>
 
-                <!-- IMAGEN DE PERFIL -->
                 <div class="mb-4 col-xs-12 col-md-4 offset-4">
                     <label class="form-label">Imagen de perfil (opcional)</label>
                     <input type="text" class="form-control" formControlName="image">

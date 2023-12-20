@@ -61,7 +61,6 @@ export class NewArticleComponent {
   async onSubmit() {
     try {
       const response = await this.articlesService.createArticle(this.newArticle.value);
-      console.log(response);
       this.router.navigate(['/area-personal']);
       this.newArticle.reset();
       await Swal.fire({

@@ -11,11 +11,9 @@ export class SubscribersService {
   private httpClient = inject(HttpClient);
 
 
-
   subscribe(email: string): Promise<any> {
     return firstValueFrom(this.httpClient.post<any>(this.baseUrl, email));
   }
-
 
   sendNews(email: string[]) {
     return firstValueFrom(this.httpClient.post<any>(`${this.baseUrl}/newsletter`, email));

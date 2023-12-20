@@ -1,8 +1,7 @@
 <h3>Equipo</h3>
 <article class="row buttons">
-    <button class="btn btn-warning col-6" (click)="modificarPagina(false)" [disabled]="page === 1">Anterior</button>
-    <button class="btn btn-warning col-6" (click)="modificarPagina(true)"
-        [disabled]="page === totalPages">Siguiente</button>
+    <button class="btn btn-warning col-6" (click)="changePage(false)" [disabled]="page === 1">Anterior</button>
+    <button class="btn btn-warning col-6" (click)="changePage(true)" [disabled]="page === totalPages">Siguiente</button>
 </article>
 <div class="container-fluid row">
     <div class="card-team">
