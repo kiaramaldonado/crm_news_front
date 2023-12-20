@@ -45,6 +45,7 @@ export class ProfileComponent {
       showCancelButton: true,
       confirmButtonText: 'Sí',
       cancelButtonText: 'No',
+      confirmButtonColor: '#ffc720',
     });
 
     if (result.isConfirmed) {

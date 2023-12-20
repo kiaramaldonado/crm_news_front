@@ -59,6 +59,11 @@ export class FormEditComponent {
         }, 0);
       } catch (error) {
         console.log(error);
+        await Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ha ocurrido un error al editar'
+        });
       }
     }
   }

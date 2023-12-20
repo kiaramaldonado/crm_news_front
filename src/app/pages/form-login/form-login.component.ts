@@ -47,7 +47,8 @@ export class FormLoginComponent {
         icon: 'error',
         title: 'Error de inicio de sesión',
         text: this.error,
-        confirmButtonText: 'OK'
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#ffc720',
       });
     }
   }
